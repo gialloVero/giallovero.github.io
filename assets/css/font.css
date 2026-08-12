@@ -1,0 +1,35 @@
+@font-face {
+	font-family: "AgencyR_FB";
+	src: url("/assets/fonts/AGENCYR.woff2") format("woff2"),
+			url("/assets/fonts/AGENCYR.TTF") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "AgencyB_FB";
+	src: url("/assets/fonts/AGENCYB.woff2") format("woff2"),
+			url("/assets/fonts/AGENCYB.TTF") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("/assets/fonts/Roboto.woff2") format("woff2"),
+		url("/assets/fonts/Roboto.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+.agency-font {
+	font-family: "AgencyR_FB", sans-serif;
+}
+
+.agency-bold-font {
+	font-family: "AgencyB_FB", sans-serif;
+}
