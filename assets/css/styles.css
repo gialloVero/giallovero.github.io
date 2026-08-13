@@ -1,24 +1,82 @@
 @import url('../bootstrap/css/bootstrap.min.css');
 
-.dracossack-img {
+.highlight-img {
 	border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
 }
 
 @media (min-width: 768px) {
-	.dracossack-img {
+	.highlight-img {
 		border-radius: var(--bs-card-inner-border-radius) 0 0 var(--bs-card-inner-border-radius);
 	}
 }
 
-.project-card {
+.card-project {
 	background-color: #262828;
 	border: var(--bs-border-width) solid #6c757d;
 	border-color: #6c757d;
 	color: var(--bs-white);
 	border-radius: var(--bs-card-border-radius);
 	overflow: hidden;
+	transition: background-color 0.2s ease;
 }
 
-/*.project-card .card-body {
-	color: inherit;
-}*/
+.card-project:hover {
+  background-color: #353838;
+  border-color: #a1a8ae;
+  cursor: pointer;
+}
+
+.card-highlight {
+	background-color: #1a1e1d; 
+	border-color: #6c757d;
+	color: aquamarine;
+}
+
+.card-highlight:hover {
+	background-color: #232b29; 
+	border-color: #7f878e;
+}
+
+.card-project .badge, .card-highlight .badge {
+  transition: background-color 0.2s ease;
+}
+
+.card-project .badge:hover,.card-highlight .badge:hover {
+	filter: brightness(1.15);
+}
+
+@font-face {
+	font-family: "AgencyR_FB";
+	src: url("/assets/fonts/AGENCYR.woff2") format("woff2"),
+			url("/assets/fonts/AGENCYR.TTF") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "AgencyB_FB";
+	src: url("/assets/fonts/AGENCYB.woff2") format("woff2"),
+			url("/assets/fonts/AGENCYB.TTF") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("/assets/fonts/Roboto.woff2") format("woff2"),
+		url("/assets/fonts/Roboto.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+.agency-font {
+	font-family: "AgencyR_FB", sans-serif;
+}
+
+.agency-bold-font {
+	font-family: "AgencyB_FB", sans-serif;
+}

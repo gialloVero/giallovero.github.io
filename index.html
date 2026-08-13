@@ -6,14 +6,13 @@
 	<meta name="author" content="gialloVero">
 	<meta name="description" content="Portfolio of gialloVero">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Portfolio Giallo</title>
+	<title>Giallo - Home</title>
 	<link rel="icon" href="/assets/images/Gi_Logo_Purple.png" type="image/x-icon">
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="/assets/css/font.css">
 	<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
-<body data-bs-theme="dark">
+<body data-bs-theme="dark" class="d-flex flex-column min-vh-100">
 
 	<!-- NavBar -->
 	<nav class="agency-bold-font navbar navbar-expand-md bg-body-tertiary sticky-top">
@@ -28,10 +27,10 @@
 			<div class="collapse navbar-collapse order-3 order-md-1" id="navbarMenu">
 				<ul class="navbar-nav ms-2">
 					<li class="nav-item">
-						<a class="nav-link fs-5" href="/projects/empty.html">Projects</a>
+						<a class="nav-link fs-5" href="/projects.html">Projects</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link fs-5" href="/projects/empty.html">About Me</a>
+						<a class="nav-link fs-5" href="/about.html">About Me</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link fs-5" href="/contact.html">Contacts</a>
@@ -120,7 +119,7 @@
 			</button>
 		</div>
 	</nav>
-	<main>
+	<main class="flex-grow-1">
 		<section id="intro">
 			<div class="container mt-4">
 				<h1 class="agency-bold-font">Portfolio_v3.0-0.1</h1>
@@ -181,21 +180,25 @@
 		<section id="highlight">
 			<div class="container mt-3">
 				<h2 class="agency-bold-font">Highlight</h2>
+				<div class="container mt-3">
 				<!-- Cosaccodrago 0 -->
 				<div class="row g-0">
-					<div class="card h-100 border-1" 
-						style="background-color: #1a1e1d; border-color: #6c757d;">
+					<div class="card h-100 border-1 card-highlight">
 						<div class="row g-0">
 							<div class="col-sm-12 col-md-6 col-lg-4">
 								<img src="/assets/images/cosacc4.jpg"
-									class="img-fluid w-100 h-100 object-fit-cover dracossack-img"
+									class="img-fluid w-100 h-100 object-fit-cover highlight-img"
 									alt="Dracossack">
 							</div>
 							<div class="col-md-6">
-								<div class="card-body" style="color:aquamarine;">
+								<div class="card-body">
 									<h4 class="card-title agency-bold-font">WIP - Cosaccodrago
 										<a href="projects/cosaccodrago.html" class="stretched-link"></a>
 									</h4>
+									<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+										<a href="/projects/empty.html" class="badge text-bg-warning text-decoration-none ">
+											WIP	</a>
+									</div>
 									<p class="card-text">
 										Creating a 3D remake of the card <em class="text-nowrap">Mecha Phantom Beast Dracossack</em>
 										<br>From the game <em class="text-nowrap"> Yu-Gi-Oh</em> and partially inspired to the animated series’ interpretation of its various other monsters.
@@ -212,98 +215,118 @@
 			</div>
 		</section> <hr>
 
-		<section id="projects" data-bs-theme="light">
+		<section id="projects">
 			<div class="container mt-3">
 				<h2 class="agency-bold-font">Projects</h2>
-					<div class="container mt-3">   
-						<div class="row g-4">
+					<div class="row g-4">
 
-							<!-- Cosaccodrago 1-->
-							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-								<div class="card h-100 project-card">
-									<div class="ratio ratio-4x3">
-										<img src="/assets/images/cosacc4.jpg"
-											class="card-img-top object-fit-cover"
-											alt="Dracossack">
-									</div>
-	
-									<div class="card-body">
-										<h5 class="card-title agency-bold-font">WIP - Cosaccodrago
-											<a href="projects/cosaccodrago.html" class="stretched-link"></a>
-										</h5>
-										<p class="card-text">
-											Creating a 3D remake of the card
-											<em class="text-nowrap">Mecha Phantom Beast Dracossack</em> from the game 
-											<em class="text-nowrap">Yu-Gi-Oh</em>
-											<br> 
-										</p>
-									</div>
-								</div>
+					<!-- Cosaccodrago 1-->
+					<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="card h-100 card-project">
+							<div class="ratio ratio-4x3">
+								<img src="/assets/images/cosacc4.jpg"
+									class="card-img-top object-fit-cover"
+									alt="Dracossack">
 							</div>
-	
-						<!-- Slitherfang -->
-						<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-							<div class="card h-100 project-card">
-								<div class="ratio ratio-4x3">
-									<img src="/assets/images/Slitherfang_Thumbnail.png"
-										class="card-img-top object-fit-cover" 
-										alt="Slitherfang">
+
+							<div class="card-body">
+								<h5 class="card-title agency-bold-font">WIP - Cosaccodrago
+									<a href="projects/cosaccodrago.html" class="stretched-link"></a>
+								</h5>
+								<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+									<a href="/projects/empty.html" class="badge text-bg-warning text-decoration-none">
+										WIP	</a>
+									<span class="badge text-bg-secondary">3D</span>
+									<span class="badge text-bg-secondary">Animation</span>
+									<a href="/projects.html" class="badge text-bg-secondary text-decoration-none">
+										SFX	</a>
+									<span class="badge text-bg-secondary">VFX</span>
 								</div>
-								<div class="card-body">
-									<h5 class="card-title agency-bold-font">SFX - Slitherfang Redesign
-										<a href="projects/snakeredesign.html" class="stretched-link "></a>
-									</h5>
-									<p class="card-text">
-										Remake the sound of the Slitherfang from the game
-										<em class="text-nowrap">Horizon - Forbidden West</em>.
-									</p>
-										Slitherfang Redesign
-									</a>
-								</div>
-							</div>
-						</div>
-	
-						<!-- Prysn -->
-						<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-							<div class="card h-100 project-card">
-								<div class="ratio ratio-4x3">
-									<img src="/assets/images/prysn.png"
-										class="card-img-top object-fit-cover" 
-										alt="Prysn">
-								</div>
-	
-								<div class="card-body">
-									<h5 class="card-title agency-bold-font">Game - Prysn
-										<a href="projects/empty.html" class="stretched-link"></a>
-									</h5>
-									<p class="card-text">
-										Prototype of the game <em class="nowrap">Prysn</em>.
-									</p>
-								</div>
-							</div>
-						</div>
-	
-						<!-- Empty Project -->
-						<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-							<div class="card h-100 project-card">
-								<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
-									<img src="/assets/images/shipLooping.gif"
-										class="card-img-top object-fit-cover" 
-										alt="Ship prototype">
-								</div>
-	
-								<div class="card-body">
-									<h5 class="card-title agency-bold-font" >Empty Project
-										<a href="projects/empty.html" class="stretched-link"></a>
-									</h5>
-									<p class="card-text">
-										Prototype.
-									</p>
-								</div>
+								<p class="card-text">
+									Creating a 3D remake of the card
+									<em class="text-nowrap">Mecha Phantom Beast Dracossack</em> from the game 
+									<em class="text-nowrap">Yu-Gi-Oh</em>
+									<br> 
+								</p>
 							</div>
 						</div>
 					</div>
-				</div>		
+
+					<!-- Slitherfang -->
+					<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="card h-100 card-project">
+							<div class="ratio ratio-4x3">
+								<img src="/assets/images/Slitherfang_Thumbnail.png"
+									class="card-img-top object-fit-cover" 
+									alt="Slitherfang">
+							</div>
+							<div class="card-body">
+								<h5 class="card-title agency-bold-font">SFX - Slitherfang Redesign
+									<a href="projects/snakeredesign.html" class="stretched-link "></a>
+								</h5>
+								<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+									<a href="/projects.html" class="badge text-bg-secondary text-decoration-none">
+									SFX	</a>
+								</div>
+								<p class="card-text">
+									Remake the sound of the Slitherfang from the game
+									<em class="text-nowrap">Horizon - Forbidden West</em>.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Prysn -->
+					<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="card h-100 card-project">
+							<div class="ratio ratio-4x3">
+								<img src="/assets/images/prysn.png"
+									class="card-img-top object-fit-cover" 
+									alt="Prysn">
+							</div>
+
+							<div class="card-body">
+								<h5 class="card-title agency-bold-font">Game - Prysn
+									<a href="projects/empty.html" class="stretched-link"></a>
+								</h5>
+								<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+										<a href="/projects.html" class="badge text-bg-secondary text-decoration-none">
+										SFX	</a>
+										<span class="badge text-bg-secondary">Team Work</span>
+										<span class="badge text-bg-secondary">Game Design</span>
+									</div>
+								<p class="card-text">
+									4 month project, where I was responsible for sound design and helped with the game design.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Empty Project -->
+					<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="card h-100 card-project">
+							<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
+								<img src="/assets/images/shipLooping.gif"
+									class="card-img-top object-fit-cover" 
+									alt="Ship prototype">
+							</div>
+
+							<div class="card-body">
+								<h5 class="card-title agency-bold-font" >Empty Project
+									<a href="projects/empty.html" class="stretched-link"></a>
+								</h5>
+								<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+										<a href="/projects/empty.html" class="badge text-bg-secondary text-decoration-none">
+										Empty</a>
+									</div>
+								<p class="card-text">
+									Prototype.
+								</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</section>
 		<section id="extra">
@@ -312,18 +335,16 @@
 					Download an <a href="/assets/images/Giallo_Logo_Purple.png" Download>icon</a>
 				</h2>
 			</div>
-		</section> <hr>
-	</main>
+		</section> 
+	</main> <hr>
 
-	<footer>
-		<a class="navbar-brand mx-auto order-0 container d-flex align-items-center" href="#">
+	<footer class="mt-auto">
+		<a class="container d-flex align-items-center" href="#">
 			<img src="/assets/images/Giallo_Logo_Purple.png" 
 			class="img-fluid"
 			alt="Giallo Logo"
-			style="width: clamp(200px, 15vw, 155px); height: auto;">
+			style="width: clamp(120px, 15vw, 155px); height: auto;">
 		</a>
-		<p>
-		</p>
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
