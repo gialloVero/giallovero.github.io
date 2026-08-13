@@ -10,9 +10,12 @@
 	<link rel="icon" href="/assets/images/Gi_Logo_Purple.png" type="image/x-icon">
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/font.css">
+	<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body data-bs-theme="dark">
+
+	<!-- NavBar -->
 	<nav class="agency-bold-font navbar navbar-expand-md bg-body-tertiary sticky-top">
 		<div class="container d-flex align-content-center">
 			<a class="navbar-brand mx-auto order-0" href="#">
@@ -25,7 +28,7 @@
 			<div class="collapse navbar-collapse order-3 order-md-1" id="navbarMenu">
 				<ul class="navbar-nav ms-2">
 					<li class="nav-item">
-						<a class="nav-link fs-5" href="/projects/cosaccodrago.html">Projects</a>
+						<a class="nav-link fs-5" href="/projects/empty.html">Projects</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link fs-5" href="/projects/empty.html">About Me</a>
@@ -135,157 +138,189 @@
 						</h2>
 						<p>
 							I am a 3D generalist game developer who will one day become a game director.
-						</p>
-						<p>
-							Here I will document part present and future works I did, enjoy!
+							<br>Here I will document past, present and future works. Enjoy!
 						</p>
 					</div>
-					<!-- Image -->
+					<!-- Image Carousel -->
 					<div class="col-md-5 text-center">
-						<img src="/assets/images/wide giallo reaction.png"
-							class="img-fluid"
-							alt="Description of the image">
+
+						<div id="introCarousel"
+							class="carousel slide"
+							style="height: 350px;"
+							data-bs-ride="carousel"
+							data-bs-interval="6000">
+
+							<div class="carousel-inner h-100">
+
+								<!-- Picture 1 -->
+								<div class="carousel-item active h-100"
+								 	data-bs-interval="18000">
+									<div class="d-flex justify-content-center align-items-center h-100">
+										<img src="/assets/images/wide_giallo_reaction.png"
+											class="img-fluid mw-100 mh-100"
+											alt="Giallo reaction">
+									</div>
+								</div>
+
+								<!-- Picture 2 -->
+								<div class="carousel-item h-100"
+									data-bs-interval="1000">
+									<div class="d-flex justify-content-center align-items-center h-100">
+										<img src="/assets/images/image2.png"
+											class="img-fluid mw-100 mh-100"
+											alt="Description of image 2">
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section> <hr>
 
 		<section id="highlight">
-			<div class="container mt-4">
-				<h2 class="agency-bold-font" >Highlight</h2>
-					<!-- Cosaccodrago 0 -->
-					<div class="row g-0">
-						<div class="card h-100" 
-							style="background-color: #262828; border-color: #6c757d;">
-							<div class="row g-0">
-								<div class="col-md-4">
-									<img src="/assets/images/cosacc4.jpg"
-										class="img-fluid rounded-start" 
-										alt="Dracossack">
-								</div>
-								<div class="col-md-8">
-									<div class="card-body" style="color: hsl(208, 6%, 57%);">
-										<h5 class="card-title">WIP - Cosaccodrago</h5>
-										<p class="card-text">
-											Creating a remake of the card
-											<em>Mecha Phantom Beast Dracossack</em> from the game
-											<em>Yu-Gi-Oh</em>.
-										</p>
-									</div>
+			<div class="container mt-3">
+				<h2 class="agency-bold-font">Highlight</h2>
+				<!-- Cosaccodrago 0 -->
+				<div class="row g-0">
+					<div class="card h-100 border-1" 
+						style="background-color: #1a1e1d; border-color: #6c757d;">
+						<div class="row g-0">
+							<div class="col-sm-12 col-md-6 col-lg-4">
+								<img src="/assets/images/cosacc4.jpg"
+									class="img-fluid w-100 h-100 object-fit-cover dracossack-img"
+									alt="Dracossack">
+							</div>
+							<div class="col-md-6">
+								<div class="card-body" style="color:aquamarine;">
+									<h4 class="card-title agency-bold-font">WIP - Cosaccodrago
+										<a href="projects/cosaccodrago.html" class="stretched-link"></a>
+									</h4>
+									<p class="card-text">
+										Creating a 3D remake of the card <em class="text-nowrap">Mecha Phantom Beast Dracossack</em>
+										<br>From the game <em class="text-nowrap"> Yu-Gi-Oh</em> and partially inspired to the animated series’ interpretation of its various other monsters.
+										<br><br>With this project, I aim to push my current skills to their limits, 
+										combining 3D, animation, sound design, shaders, and VFX into a fully realized 
+										<span class="text-nowrap">in-engine</span> 
+										experience.
+									</p>
 								</div>
 							</div>
 						</div>
-					</div>			
+					</div>
+				</div>			
 			</div>
 		</section> <hr>
 
 		<section id="projects" data-bs-theme="light">
-			<h3>Projects</h3>
-				<div class="container">   
-					<div class="row g-4">
-						<!-- Cosaccodrago 1-->
-						<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-							<div class="card h-100" style="background-color: #9eeaf9; border-color: #6c757d;">
-								<div class="ratio ratio-4x3 bg-dark">
-									<img src="/assets/images/cosacc4.jpg"
-										class="card-img-top object-fit-cover"
-										alt="Dracossack">
-								</div>
+			<div class="container mt-3">
+				<h2 class="agency-bold-font">Projects</h2>
+					<div class="container mt-3">   
+						<div class="row g-4">
 
+							<!-- Cosaccodrago 1-->
+							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+								<div class="card h-100 project-card">
+									<div class="ratio ratio-4x3">
+										<img src="/assets/images/cosacc4.jpg"
+											class="card-img-top object-fit-cover"
+											alt="Dracossack">
+									</div>
+	
+									<div class="card-body">
+										<h5 class="card-title agency-bold-font">WIP - Cosaccodrago
+											<a href="projects/cosaccodrago.html" class="stretched-link"></a>
+										</h5>
+										<p class="card-text">
+											Creating a 3D remake of the card
+											<em class="text-nowrap">Mecha Phantom Beast Dracossack</em> from the game 
+											<em class="text-nowrap">Yu-Gi-Oh</em>
+											<br> 
+										</p>
+									</div>
+								</div>
+							</div>
+	
+						<!-- Slitherfang -->
+						<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="card h-100 project-card">
+								<div class="ratio ratio-4x3">
+									<img src="/assets/images/Slitherfang_Thumbnail.png"
+										class="card-img-top object-fit-cover" 
+										alt="Slitherfang">
+								</div>
 								<div class="card-body">
-									<h5 class="card-title">WIP - Cosaccodrago</h5>
+									<h5 class="card-title agency-bold-font">SFX - Slitherfang Redesign
+										<a href="projects/snakeredesign.html" class="stretched-link "></a>
+									</h5>
 									<p class="card-text">
-										Creating a remake of the card
-										<em>Mecha Phantom Beast Dracossack</em> from the game
-										<em>Yu-Gi-Oh</em>.
+										Remake the sound of the Slitherfang from the game
+										<em class="text-nowrap">Horizon - Forbidden West</em>.
 									</p>
-									<a href="projects/cosaccodrago.html" class="btn btn-primary">
-										Cosaccodrago 3D model
+										Slitherfang Redesign
 									</a>
 								</div>
 							</div>
 						</div>
-
-					<!-- Slitherfang -->
-					<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-						<div class="card h-100" style="background-color: #9eeaf9; border-color: #6c757d;">
-							<div class="ratio ratio-4x3 bg-dark">
-								<img src="/assets/images/Slitherfang_Thumbnail.png"
-									class="card-img-top object-fit-cover" 
-									alt="Slitherfang">
+	
+						<!-- Prysn -->
+						<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="card h-100 project-card">
+								<div class="ratio ratio-4x3">
+									<img src="/assets/images/prysn.png"
+										class="card-img-top object-fit-cover" 
+										alt="Prysn">
+								</div>
+	
+								<div class="card-body">
+									<h5 class="card-title agency-bold-font">Game - Prysn
+										<a href="projects/empty.html" class="stretched-link"></a>
+									</h5>
+									<p class="card-text">
+										Prototype of the game <em class="nowrap">Prysn</em>.
+									</p>
+								</div>
 							</div>
-							<div class="card-body">
-								<h5 class="card-title">SFX - Slitherfang Redesign</h5>
-								<p class="card-text">
-									Remake the sound of the Slitherfang from the game <br>
-									<em>Horizon - Forbidden West</em>.
-								</p>
-								<a href="projects/snakeredesign.html" class="btn btn-primary">
-									Slitherfang Redesign
-								</a>
+						</div>
+	
+						<!-- Empty Project -->
+						<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="card h-100 project-card">
+								<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
+									<img src="/assets/images/shipLooping.gif"
+										class="card-img-top object-fit-cover" 
+										alt="Ship prototype">
+								</div>
+	
+								<div class="card-body">
+									<h5 class="card-title agency-bold-font" >Empty Project
+										<a href="projects/empty.html" class="stretched-link"></a>
+									</h5>
+									<p class="card-text">
+										Prototype.
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
-
-					<!-- Prysn -->
-					<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-						<div class="card h-100" style="background-color: #9eeaf9; border-color: #6c757d;">
-							<div class="ratio ratio-4x3 bg-dark">
-								<img src="/assets/images/prysn.png"
-									class="card-img-top object-fit-cover" 
-									alt="Prysn">
-							</div>
-
-							<div class="card-body">
-								<h5 class="card-title">Game - Prysn</h5>
-								<p class="card-text">
-									Prototype of the game Prysn.
-								</p>
-								<a href="projects/empty.html" class="btn btn-primary">
-									Prysn
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Empty Project -->
-					<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-						<div class="card h-100" style="background-color: #9eeaf9; border-color: #6c757d;">
-							<div class="ratio ratio-4x3 bg-dark">
-								<img src="/assets/images/shipLooping.gif"
-									class="card-img-top object-fit-cover" 
-									alt="Ship prototype">
-							</div>
-
-							<div class="card-body">
-								<h5 class="card-title">Empty Project</h5>
-								<p class="card-text">
-									Prototype.
-								</p>
-								<a href="projects/empty.html" class="btn btn-primary">
-									Empty Project
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>		
+				</div>		
+			</div>
 		</section>
 		<section id="extra">
-			<ul>
-				<li>
-					Download an <a href="/src/images/Giallo_Logo_Purple.png" Download>icon</a>
-				</li>
-			</ul>
+			<div class="container mt-4">
+				<h2 class="agency-bold-font">
+					Download an <a href="/assets/images/Giallo_Logo_Purple.png" Download>icon</a>
+				</h2>
+			</div>
 		</section> <hr>
 	</main>
 
 	<footer>
 		<a class="navbar-brand mx-auto order-0 container d-flex align-items-center" href="#">
-				<img src="/assets/images/Giallo_Logo_Purple.png" 
-				class="img-fluid"
-				alt="Giallo Logo"
-				style="width: clamp(200px, 15vw, 155px); height: auto;">
+			<img src="/assets/images/Giallo_Logo_Purple.png" 
+			class="img-fluid"
+			alt="Giallo Logo"
+			style="width: clamp(200px, 15vw, 155px); height: auto;">
 		</a>
 		<p>
 		</p>

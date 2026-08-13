@@ -1,0 +1,24 @@
+@import url('../bootstrap/css/bootstrap.min.css');
+
+.dracossack-img {
+	border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
+}
+
+@media (min-width: 768px) {
+	.dracossack-img {
+		border-radius: var(--bs-card-inner-border-radius) 0 0 var(--bs-card-inner-border-radius);
+	}
+}
+
+.project-card {
+	background-color: #262828;
+	border: var(--bs-border-width) solid #6c757d;
+	border-color: #6c757d;
+	color: var(--bs-white);
+	border-radius: var(--bs-card-border-radius);
+	overflow: hidden;
+}
+
+/*.project-card .card-body {
+	color: inherit;
+}*/
