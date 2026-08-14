@@ -9,6 +9,8 @@ const gameJam = document.getElementById("gameJamButton");
 
 const buttons = [animation, art3D, gameDesign, programming, teamWork, vfx, sfx, gameJam];
 
+const badges = document.querySelectorAll(".tag-badge");
+
 const tagMap = {
 	"3dButton": ["3d", "3D Art"],
 	"AniButton": ["animation", "Animation"],
@@ -17,7 +19,18 @@ const tagMap = {
 	"twButton": ["teamwork", "Team Work"],
 	"vfxButton": ["vfx", "Visual Effects & Shader"],
 	"sfxButton": ["sfx", "Sound Effects"],
-	"gameJamButton": ["gameJam", "Game Jam"],
+	"gameJamButton": ["game_jam", "Game Jam"],
+};
+
+const btnMap = {
+	"3d": "3dButton",
+	"animation": "AniButton",
+	"game_design": "gDButton",
+	"programming": "progButton",
+	"teamwork": "twButton",
+	"vfx": "vfxButton",
+	"sfx": "sfxButton",
+	"game_jam": "gameJamButton",
 };
 
 const title = document.getElementById("projectTitle");
@@ -61,7 +74,7 @@ buttons.forEach((button) => {
 			buttons.forEach(btn => {
 				if (btn) {
 					btn.setAttribute("aria-pressed", "false");
-					btn.classList.remove("btn-primary", "active");
+					btn.classList.remove("btn-tag-selected", "active");
 					btn.classList.add("btn-secondary");
 				}
 			});
@@ -70,10 +83,46 @@ buttons.forEach((button) => {
 			if (!isCurrentlyActive) {
 				button.setAttribute("aria-pressed", "true");
 				button.classList.remove("btn-secondary");
-				button.classList.add("btn-primary", "active");
+				button.classList.add("btn-tag-selected", "active");  
 			}
+
+			const selectedButton = buttons.find(btn => btn && btn.classList.contains("active"));
+			const selectedTag = selectedButton ? tagMap[selectedButton.id][0] : null;
+
+			const url = new URL(window.location.href);
+			if (selectedTag) {
+				url.searchParams.set("tag", selectedTag);
+			} else {
+				url.searchParams.delete("tag");
+			}
+			window.history.replaceState({}, "", url);
 
 			filterProjects();
 		});
 	}
 });
+
+badges.forEach((badge) => {
+	if (badge) {
+		badge.addEventListener("click", (e) => {
+			e.preventDefault();
+
+			const buttonId = btnMap[badge.getAttribute("data-tag")];
+			const button = document.getElementById(buttonId);
+
+			if (button && !button.classList.contains("active")) {
+				button.click();
+			}
+		});
+	}
+});
+
+const urlParams = new URLSearchParams(window.location.search);
+const initialTag = urlParams.get("tag");
+
+if (initialTag && btnMap[initialTag]) {
+	const button = document.getElementById(btnMap[initialTag]);
+	if (button && !button.classList.contains("active")) {
+		button.click();
+	}
+}

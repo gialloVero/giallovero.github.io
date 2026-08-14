@@ -37,8 +37,18 @@
 	border-color: #7f878e;
 }
 
+.btn.btn-tag-selected,
+.btn.btn-tag-selected.active,
+.btn.btn-tag-selected:hover,
+.btn.btn-tag-selected:focus,
+.btn.btn-tag-selected:active {
+	background-color: #88179c;
+	border-color: #88179c;
+	color: #ffffff;
+}
+
 .card-project .badge, .card-highlight .badge {
-  transition: background-color 0.2s ease;
+	transition: background-color 0.2s ease;
 }
 
 .card-project .badge:hover,.card-highlight .badge:hover {
