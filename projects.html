@@ -27,7 +27,7 @@
 			<div class="collapse navbar-collapse order-3 order-md-1" id="navbarMenu">
 				<ul class="navbar-nav ms-2">
 					<li class="nav-item">
-						<a class="nav-link fs-5 active" href="#">Projects</a>
+						<a class="nav-link fs-5 active" href="#"><u>Projects</u></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link fs-5" href="/about.html">About Me</a>
@@ -126,7 +126,37 @@
 			<div class="container mt-4">
 
 				<!-- Title -->
-				<h1 class="agency-bold-font">Projects</h1>
+				<div class="row g-4 align-items-center">
+					<div class="col-12 col-md-6">
+						<h1 class="agency-bold-font" id="projectTitle">Projects</h1>
+					</div>
+					<div class="col-12 col-md-6 text-md-end">
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="3dButton">3D
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="AniButton">Animation
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="sfxButton">SFX
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="vfxButton">VFX
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="gDButton">Game Design
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="progButton">Programming
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="twButton">Team Work
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							id="gameJamButton">Game Jam
+						</button>
+					</div>
+				</div>
 
 				<!-- highlight -->
 				<section id="highlightProject">
@@ -140,7 +170,7 @@
 							
 							<!-- Cosaccodrago 1-->
 							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-								<div class="card h-100 card-project">
+								<div class="card h-100 card-project" data-tags="3d,animation,sfx,vfx">
 									<div class="ratio ratio-4x3">
 										<img src="/assets/images/cosacc4.jpg"
 											class="card-img-top object-fit-cover"
@@ -172,7 +202,7 @@
 
 							<!-- Slitherfang -->
 							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-								<div class="card h-100 card-project">
+								<div class="card h-100 card-project" data-tags="sfx">
 									<div class="ratio ratio-4x3">
 										<img src="/assets/images/Slitherfang_Thumbnail.png"
 											class="card-img-top object-fit-cover" 
@@ -196,7 +226,7 @@
 
 							<!-- Prysn -->
 							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-								<div class="card h-100 card-project">
+								<div class="card h-100 card-project" data-tags="sfx,teamwork,game_design">
 									<div class="ratio ratio-4x3">
 										<img src="/assets/images/prysn.png"
 											class="card-img-top object-fit-cover" 
@@ -205,7 +235,7 @@
 
 									<div class="card-body">
 										<h5 class="card-title agency-bold-font">Game - Prysn
-											<a href="projects/empty.html" class="stretched-link"></a>
+											<a href="projects/prysn.html" class="stretched-link"></a>
 										</h5>
 										<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
 												<a href="/projects.html" class="badge text-bg-secondary text-decoration-none">
@@ -222,15 +252,22 @@
 
 							<!-- Spherical Anchor Project -->
 							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-								<div class="card h-100 card-project">
+								<div class="card h-100 card-project" data-tags="game_design">
 									<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
 										<img src="/assets/images/shipLooping.gif"
 											class="card-img-top object-fit-cover" 
-											alt="Ship prototype">
+											alt="Ship prototype"
+											loading="lazy">
 									</div>
 
 									<div class="card-body">
 										<h5 class="card-title agency-bold-font" >Spherical Anchor Project
+											<a 
+												href="https://miro.com/app/board/uXjVKSM6FzQ=/?share_link_id=865742316703"
+												class="stretched-link"
+												target="_blank"
+												rel="noopener noreferrer">
+											</a>
 											<a href="projects/spherical.html" class="stretched-link"></a>
 										</h5>
 										<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
@@ -240,8 +277,152 @@
 												Game Design</a>
 											</div>
 										<p class="card-text">
-											Crawl the inside a gravitationally unstable cave system and unravel these chasms.
+											Piloting a space ship through anchored movement only... a challenge yet to prove itself.
 										</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Greymatter -->
+							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+								<div class="card h-100 card-project" data-tags="teamwork,sfx,programming">
+									<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
+										<img src="/assets/images/GMG.png"
+											class="card-img-top object-fit-cover" 
+											alt="Ship prototype">
+									</div>
+
+									<div class="card-body">
+										<h5 class="card-title agency-bold-font" >Grey Matter Internship
+											<a href="projects/empty.html" class="stretched-link"></a>
+										</h5>
+										<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+												<a href="/projects/empty.html" class="badge text-bg-secondary text-decoration-none">
+												Team Work</a>
+												<a href="/projects.html" class="badge text-bg-secondary text-decoration-none">
+												SFX	</a>
+												<a href="/projects.html" class="badge text-bg-secondary text-decoration-none">
+												Programming</a>
+												
+											</div>
+										<p class="card-text">
+											My Internship at 
+											<em class="text-nowrap">Grey Matter Games</em> 
+											on the game <em>Computronium</em>.
+											
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Pinnacle -->
+							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+								<div class="card h-100 card-project" data-tags="3d,vfx">
+									<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
+										<img src="/assets/images/PinnacleThumbnail01.png	"
+											class="card-img-top object-fit-cover" 
+											alt="Ship prototype">
+									</div>
+
+									<div class="card-body">
+										<h5 class="card-title agency-bold-font" >Pinnacle Scene
+											<a 
+												href="https://miro.com/app/board/uXjVKSM6FzQ=/?share_link_id=865742316703"
+												class="stretched-link"
+												target="_blank"
+												rel="noopener noreferrer">
+											</a>
+										</h5>
+										<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+											<span class="badge text-bg-secondary">3D</span>
+											<span class="badge text-bg-secondary">VFX</span>
+										</div>
+										<p class="card-text">
+											Creating <span class="text-nowrap">in-engine</span>  a mountain base scene using shaders and modular modeling
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Tetrapod -->
+							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+								<div class="card h-100 card-project" data-tags="3d,animation">
+									<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
+										<img src="/assets/images/tetrapod_thumbnail.png"
+											class="card-img-top object-fit-cover" 
+											alt="Ship prototype"
+											loading="lazy">
+									</div>
+
+									<div class="card-body">
+										<h5 class="card-title agency-bold-font" >Tetrapod
+											<a href="projects/empty.html" class="stretched-link"></a>
+										</h5>
+										<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+												<span class="badge text-bg-secondary">3D</span>
+											<span class="badge text-bg-secondary">Animation</span>
+											</div>
+										<p class="card-text">
+											Game Ready model of a mech tetrapod and my first animated project.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Gamer Kart -->
+							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+								<div class="card h-100 card-project" data-tags="3d,animation,vfx">
+									<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
+										<img src="/assets/images/GamerKartThumbnail01.gif"
+											class="card-img-top object-fit-cover" 
+											alt="Ship prototype"
+											loading="lazy">
+									</div>
+
+									<div class="card-body">
+										<h5 class="card-title agency-bold-font" >Gamer Kart
+											<a href="projects/empty.html" class="stretched-link"></a>
+										</h5>
+										<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+												<span class="badge text-bg-secondary">3D</span>
+												<span class="badge text-bg-secondary">Animation</span>
+												<span class="badge text-bg-secondary">VFX</span>
+											</div>
+										<p class="card-text">
+											Immagine <em class="text-nowrap">Mario Kart</em>  but driven only by extremely <span class="text-nowrap">Toxic Gamers</span>.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- The Mines Sweept -->
+							<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+								<div class="card h-100 card-project" data-tags="gameJam">
+									<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
+										<img src="/assets/images/TheMinesSwept.png"
+											class="card-img-top object-fit-cover" 
+											alt="Ship prototype"
+											loading="lazy">
+									</div>
+
+									<div class="card-body">
+										<h5 class="card-title agency-bold-font" >The Mines we Swept along <span class="text-nowrap">the way</span>
+											<a 
+												href="https://giallovero.itch.io/mines-we-swept"
+												class="stretched-link"
+												target="_blank"
+												rel="noopener noreferrer">
+											</a>
+										</h5>
+										<div class="d-flex flex-wrap gap-1 mb-2 position-relative z-1">
+												<a href="/projects.html" class="badge text-bg-secondary text-decoration-none">
+												Game Jam</a>
+											</div>
+										<p class="card-text">
+											<em class="text-nowrap">Keep Talking and nobody explodes</em> 
+											but it's  
+											<em class="text-nowrap">Mine Sweeper</em>
+										</p> 
 									</div>
 								</div>
 							</div>
@@ -252,7 +433,8 @@
 									<div class="ratio ratio-4x3 bg-dark">  <!--add/remove bg-dark if needed-->
 										<img src="/assets/images/shipLooping.gif"
 											class="card-img-top object-fit-cover" 
-											alt="Ship prototype">
+											alt="Ship prototype"
+											loading="lazy">
 									</div>
 
 									<div class="card-body">
@@ -269,10 +451,6 @@
 									</div>
 								</div>
 							</div>
-
-
-
-							
 						</div>
 					</div>
 				</section>
@@ -290,6 +468,7 @@
 			alt="Giallo Logo"
 			style="width: clamp(120px, 15vw, 155px); height: auto;">
 		</a>
+		<p></p>
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/filter_projects.js"></script>
