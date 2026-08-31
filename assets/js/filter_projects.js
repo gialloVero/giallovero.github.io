@@ -74,16 +74,40 @@ buttons.forEach((button) => {
 			buttons.forEach(btn => {
 				if (btn) {
 					btn.setAttribute("aria-pressed", "false");
-					btn.classList.remove("btn-tag-selected", "active");
-					btn.classList.add("btn-secondary");
+					btn.classList.remove("btn-tag-selected", "btn-tag-unselected", "active");
+
+					// Add the appropriate class based on whether the button was active or not
+					if (!isCurrentlyActive)
+						btn.classList.add("btn-tag-unselected");
+					else
+						btn.classList.add("btn-secondary");
 				}
 			});
 			
 			// If clicking an unpressed button, activate it
 			if (!isCurrentlyActive) {
 				button.setAttribute("aria-pressed", "true");
-				button.classList.remove("btn-secondary");
-				button.classList.add("btn-tag-selected", "active");  
+				button.classList.remove("btn-tag-unselected", "btn-secondary");
+				button.classList.add("btn-tag-selected", "active");
+				badges.forEach((badge) => {
+					if (badge) {
+						const badgeTag = badge.getAttribute("data-tag");
+						badge.classList.remove("text-bg-secondary", "badge-unselected");
+
+						if (badgeTag === tagMap[button.id][0]) {
+							badge.classList.add("text-bg-secondary");
+						} else {
+							badge.classList.add("badge-unselected");
+						}
+					}
+				});
+			} else {
+				badges.forEach((badge) => {
+					if (badge) {
+						badge.classList.remove("badge-unselected");
+						badge.classList.add("text-bg-secondary");
+					}
+				});
 			}
 
 			const selectedButton = buttons.find(btn => btn && btn.classList.contains("active"));

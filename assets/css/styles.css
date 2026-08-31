@@ -21,9 +21,9 @@
 }
 
 .card-project:hover {
-  background-color: #353838;
-  border-color: #a1a8ae;
-  cursor: pointer;
+	background-color: #353838;
+	border-color: #a1a8ae;
+	cursor: pointer;
 }
 
 .card-highlight {
@@ -42,9 +42,29 @@
 .btn.btn-tag-selected:hover,
 .btn.btn-tag-selected:focus,
 .btn.btn-tag-selected:active {
-	background-color: #88179c;
-	border-color: #88179c;
+	--color-selected: #88179c;
+	--color-selected-border: #a46be6;
+	background-color: var(--color-selected);
+	border-color: var(--color-selected-border);
 	color: #ffffff;
+}
+
+.btn.btn-tag-unselected,
+.btn.btn-tag-unselected.active,
+.badge-unselected {
+	--color-selected: #1f2224;
+	--color-selected-border: #404547;
+	--color-selected-hover: #61696e;
+	background-color: var(--color-selected);
+	border-color: var(--color-selected-border);
+	color: #ffffff;
+}
+
+.btn.btn-tag-unselected:hover,
+.btn.btn-tag-unselected:focus,
+.btn.btn-tag-unselected:active {
+	background-color: var(--color-selected-hover);
+	border-color: var(--color-selected-hover);
 }
 
 .card-project .badge, .card-highlight .badge {
