@@ -1,152 +1,108 @@
-const animation = document.getElementById("AniButton");
-const art3D = document.getElementById("3dButton");
-const gameDesign = document.getElementById("gDButton");
-const programming = document.getElementById("progButton");
-const sfx = document.getElementById("sfxButton");
-const teamWork = document.getElementById("twButton");
-const vfx = document.getElementById("vfxButton");
-const gameJam = document.getElementById("gameJamButton");
-
-const buttons = [animation, art3D, gameDesign, programming, teamWork, vfx, sfx, gameJam];
-
-const badges = document.querySelectorAll(".tag-badge");
-
-const tagMap = {
-	"3dButton": ["3d", "3D Art"],
-	"AniButton": ["animation", "Animation"],
-	"gDButton": ["game_design", "Game Design"],
-	"progButton": ["programming", "Programming"],
-	"twButton": ["teamwork", "Team Work"],
-	"vfxButton": ["vfx", "Visual Effects & Shader"],
-	"sfxButton": ["sfx", "Sound Effects"],
-	"gameJamButton": ["game_jam", "Game Jam"],
+const tagInfo = {
+	"3d": "3D Art",
+	animation: "Animation",
+	game_design: "Game Design",
+	programming: "Programming",
+	teamwork: "Team Work",
+	vfx: "Visual Effects & Shader",
+	sfx: "Sound Effects",
+	game_jam: "Game Jam",
 };
 
-const btnMap = {
-	"3d": "3dButton",
-	"animation": "AniButton",
-	"game_design": "gDButton",
-	"programming": "progButton",
-	"teamwork": "twButton",
-	"vfx": "vfxButton",
-	"sfx": "sfxButton",
-	"game_jam": "gameJamButton",
-};
-
+const buttons = [...document.querySelectorAll(".btn-tag")];
+const badges = [...document.querySelectorAll(".tag-badge")];
 const title = document.getElementById("projectTitle");
 
+let selectedTag = null;
+
 function filterProjects() {
-	let projects = document.querySelectorAll(".card-project");
+	const highlights = document.querySelectorAll(".card-highlight");
+	const highlightSection = document.getElementById("highlightProject");
+	const otherProjectsTitle = document.getElementById("otherProjectsTitle");
+	let highlightFound = false;
+	const highlightProjectsIds = [];
 
-	const selectedButton = buttons.find(button => button && button.classList.contains("active"));
-	const selectedTag = selectedButton ? tagMap[selectedButton.id][0] : null;
+	highlights.forEach((highlight) => {
+		const column = highlight.closest("[class*='row']");
+		const highlightTags = (highlight.dataset.tags || "").split(",").map((tag) => tag.trim());
 
-	title.textContent = selectedTag ? `Projects - ${tagMap[selectedButton.id][1]}` : "Projects";
+		const show = !selectedTag || highlightTags.includes(selectedTag);
+		highlightFound = highlightFound || show;
+		highlightProjectsIds.push(highlight.dataset.projectId);
+		column.style.display = show && selectedTag ? "block" : "none";
+	});
+
+	highlightSection.style.display = highlightFound && selectedTag ? "block" : "none";
+	otherProjectsTitle.style.display = highlightFound && selectedTag ? "block" : "none";
+
+	const projects = document.querySelectorAll(".card-project");
 
 	projects.forEach((project) => {
 		const column = project.closest("[class*='col-']");
-		const projectTags = project.getAttribute("data-tags");
-		
-		// If nothing is selected, show all
-		if (!selectedTag) {
-			column.style.display = "block";
-			return;
-		}
-		
-		// Filter based on the selected tag
-		if (projectTags) {
-			const tagList = projectTags.split(",").map(tag => tag.trim());
-			column.style.display = tagList.includes(selectedTag) ? "block" : "none";
-		} else {
-			column.style.display = "none";
-		}
+		const projectTags = (project.dataset.tags || "").split(",").map((tag) => tag.trim());
+		const projectId = project.dataset.projectId;
+
+		const show = !selectedTag || (projectTags.includes(selectedTag) && !highlightProjectsIds.includes(projectId));
+		column.style.display = show ? "block" : "none";
 	});
 }
 
-buttons.forEach((button) => {
-	if (button) {
-		button.addEventListener("click", (e) => {
-			e.preventDefault();
+function setSelectedTag(nextTag) {
+	selectedTag = nextTag;
 
-			const isCurrentlyActive = button.classList.contains("active");
-			
-			// Reset all buttons
-			buttons.forEach(btn => {
-				if (btn) {
-					btn.setAttribute("aria-pressed", "false");
-					btn.classList.remove("btn-tag-selected", "btn-tag-unselected", "active");
+	buttons.forEach((button) => {
+		const active = button.dataset.tag === selectedTag;
 
-					// Add the appropriate class based on whether the button was active or not
-					if (!isCurrentlyActive)
-						btn.classList.add("btn-tag-unselected");
-					else
-						btn.classList.add("btn-secondary");
-				}
-			});
-			
-			// If clicking an unpressed button, activate it
-			if (!isCurrentlyActive) {
-				button.setAttribute("aria-pressed", "true");
-				button.classList.remove("btn-tag-unselected", "btn-secondary");
-				button.classList.add("btn-tag-selected", "active");
-				badges.forEach((badge) => {
-					if (badge) {
-						const badgeTag = badge.getAttribute("data-tag");
-						badge.classList.remove("text-bg-secondary", "badge-unselected");
+		button.classList.remove("active", "btn-tag-selected", "btn-tag-unselected", "btn-secondary");
 
-						if (badgeTag === tagMap[button.id][0]) {
-							badge.classList.add("text-bg-secondary");
-						} else {
-							badge.classList.add("badge-unselected");
-						}
-					}
-				});
-			} else {
-				badges.forEach((badge) => {
-					if (badge) {
-						badge.classList.remove("badge-unselected");
-						badge.classList.add("text-bg-secondary");
-					}
-				});
-			}
+		if (!selectedTag) {
+			button.classList.add("btn-secondary");
+			button.setAttribute("aria-pressed", "false");
+			return;
+		}
 
-			const selectedButton = buttons.find(btn => btn && btn.classList.contains("active"));
-			const selectedTag = selectedButton ? tagMap[selectedButton.id][0] : null;
+		button.classList.add(active ? "btn-tag-selected" : "btn-tag-unselected");
+		button.classList.toggle("active", active);
+		button.setAttribute("aria-pressed", String(active));
+	});
 
-			const url = new URL(window.location.href);
-			if (selectedTag) {
-				url.searchParams.set("tag", selectedTag);
-			} else {
-				url.searchParams.delete("tag");
-			}
-			window.history.replaceState({}, "", url);
+	badges.forEach((badge) => {
+		const active = badge.dataset.tag === selectedTag;
+		badge.classList.toggle("badge-unselected", selectedTag && !active);
+		badge.classList.toggle("text-bg-secondary", !selectedTag || active);
+	});
 
-			filterProjects();
-		});
+	const url = new URL(window.location.href);
+	if (selectedTag) {
+		url.searchParams.set("tag", selectedTag);
+	} else {
+		url.searchParams.delete("tag");
 	}
+	window.history.replaceState({}, "", url);
+
+	title.textContent = selectedTag ? `Projects - ${tagInfo[selectedTag]}` : "Projects";
+
+	filterProjects();
+}
+
+buttons.forEach((button) => {
+	button.addEventListener("click", () => {
+		const nextTag = button.dataset.tag;
+		setSelectedTag(selectedTag === nextTag ? null : nextTag);
+	});
 });
 
 badges.forEach((badge) => {
-	if (badge) {
-		badge.addEventListener("click", (e) => {
-			e.preventDefault();
-
-			const buttonId = btnMap[badge.getAttribute("data-tag")];
-			const button = document.getElementById(buttonId);
-
-			if (button && !button.classList.contains("active")) {
-				button.click();
-			}
-		});
-	}
+	badge.addEventListener("click", () => {
+		const nextTag = badge.dataset.tag;
+		if (selectedTag !== nextTag)
+			setSelectedTag(nextTag);
+	});
 });
 
 const urlParams = new URLSearchParams(window.location.search);
 const initialTag = urlParams.get("tag");
 
-if (initialTag && btnMap[initialTag]) {
-	const button = document.getElementById(btnMap[initialTag]);
-	if (button && !button.classList.contains("active")) {
-		button.click();
-	}
+if (initialTag && tagInfo[initialTag]) {
+	setSelectedTag(initialTag);
 }

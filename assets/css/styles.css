@@ -30,6 +30,7 @@
 	background-color: #1a1e1d; 
 	border-color: #6c757d;
 	color: aquamarine;
+	max-height: 500px;
 }
 
 .card-highlight:hover {
@@ -43,7 +44,7 @@
 .btn.btn-tag-selected:focus,
 .btn.btn-tag-selected:active {
 	--color-selected: #88179c;
-	--color-selected-border: #a46be6;
+	--color-selected-border: #a733be;
 	background-color: var(--color-selected);
 	border-color: var(--color-selected-border);
 	color: #ffffff;
@@ -52,12 +53,12 @@
 .btn.btn-tag-unselected,
 .btn.btn-tag-unselected.active,
 .badge-unselected {
-	--color-selected: #1f2224;
-	--color-selected-border: #404547;
+	--color-selected: #3c4144;
+	--color-selected-border: #61696e;
 	--color-selected-hover: #61696e;
 	background-color: var(--color-selected);
-	border-color: var(--color-selected-border);
-	color: #ffffff;
+	border: 1px solid var(--color-selected-border);
+	color: #ffffffa9;
 }
 
 .btn.btn-tag-unselected:hover,
@@ -72,6 +73,7 @@
 }
 
 .card-project .badge:hover,.card-highlight .badge:hover {
+	cursor: pointer;
 	filter: brightness(1.15);
 }
 
