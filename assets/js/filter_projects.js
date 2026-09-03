@@ -19,8 +19,8 @@ function filterProjects() {
 	const highlights = document.querySelectorAll(".card-highlight");
 	const highlightSection = document.getElementById("highlightProject");
 	const otherProjectsTitle = document.getElementById("otherProjectsTitle");
-	let highlightFound = false;
 	const highlightProjectsIds = [];
+	let highlightFound = false;
 
 	highlights.forEach((highlight) => {
 		const column = highlight.closest("[class*='row']");
@@ -28,7 +28,10 @@ function filterProjects() {
 
 		const show = !selectedTag || highlightTags.includes(selectedTag);
 		highlightFound = highlightFound || show;
-		highlightProjectsIds.push(highlight.dataset.projectId);
+
+		if (show)
+			highlightProjectsIds.push(highlight.dataset.projectId);
+
 		column.style.display = show && selectedTag ? "block" : "none";
 	});
 
@@ -69,6 +72,7 @@ function setSelectedTag(nextTag) {
 	badges.forEach((badge) => {
 		const active = badge.dataset.tag === selectedTag;
 		badge.classList.toggle("badge-unselected", selectedTag && !active);
+		badge.classList.toggle("badge-selected", selectedTag && active);
 		badge.classList.toggle("text-bg-secondary", !selectedTag || active);
 	});
 
