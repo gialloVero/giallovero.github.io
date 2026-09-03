@@ -43,6 +43,8 @@
 				<!-- Instagram -->
  				<a class="btn btn-dark d-inline-flex align-items-center justify-content-center p-2"
 					href="https://www.instagram.com/giallovero/"
+					target="_blank"
+					rel="noopener noreferrer"
 					aria-label="Instagram">
 					<svg xmlns="http://www.w3.org/2000/svg"
 						width="20" height="20"
@@ -56,6 +58,8 @@
 				<!-- LinkedIn -->
 				<a class="btn btn-dark d-inline-flex align-items-center justify-content-center p-2"
 					href="https://www.linkedin.com/in/giorgio-allotta/"
+					target="_blank"
+					rel="noopener noreferrer"
 					aria-label="LinkedIn">
 
 					<svg xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +74,8 @@
 				<!-- Youtube -->
 				<a class="btn btn-dark d-inline-flex align-items-center justify-content-center p-2"
 					href="https://www.youtube.com/@giallovero7854"
+					target="_blank"
+					rel="noopener noreferrer"
 					aria-label="Youtube">
 
 					<svg xmlns="http://www.w3.org/2000/svg" 
@@ -84,6 +90,8 @@
 				<!-- itch.io -->
 				<a class="btn btn-dark d-inline-flex align-items-center justify-content-center p-2"
 					href="https://giallovero.itch.io/"
+					target="_blank"
+					rel="noopener noreferrer"
 					aria-label="itch.io">
 					<img src="/assets/svg/itchio-textless-white.svg"
 						alt="itch.io"
@@ -94,6 +102,8 @@
 				<!-- Sketchfab -->
 				<a class="btn btn-dark d-inline-flex align-items-center justify-content-center p-2"
 					href="https://sketchfab.com/Giallovero"
+					target="_blank"
+					rel="noopener noreferrer"
 					aria-label="Sketchfab">
 
 					<svg xmlns="http://www.w3.org/2000/svg"
@@ -120,49 +130,36 @@
 		</div>
 	</nav>
 
-	<header>
-		<h1>Contact Me</h1>
-		<nav>
-			<ul>
-				<li>
-					<a href="/#top">Home</a>
-				</li>
-				<li>
-					<a href="/#projects">Project List</a>
-				</li>
-			</ul>
-		</nav>
-	</header> <hr>
-	<main>
-		<ul></ul>
-		<section>
-			<h2>Send me a Note</h2>
-			<form action="https://httpbin.org/get" method="get">
-				<fieldset>
-					<legend>Contact Form</legend>
-					<p>
-						<label for="name">Name:</label>
-						<input type="text" name="name" id="name" 
-						placeholder="your name" required> 
-					</p>
-					<p>
-						<label for="email">Email:</label>
-						<input type="email" name="email" id="email" 
-						placeholder="your email">
-					</p>
-					<p>
-						<label for="message">Your Message:</label>
-						<br>
-						<textarea name="message" id="message" cols="30" 
-						rows="10" placeholder="Your message"
-							required></textarea>
-					</p>
-					<button type="submit">Send</button>
-					<button type="reset">Reset</button>
-				</fieldset>
-			</form>
+	<main class="flex-grow-1">
+		<section id="intro">
+			<div class="container mt-4">
+				<h1 class="agency-bold-font">Contact Me</h1>
+			</div>
+		</section>
+		<section id="highlight">
+			<div class="container mt-3">
+				<h2>Send me a Message</h2>
+				<div class="row g-4">
+					<form class="col-12 col-md-8" id="contactForm">
+						<div class="mb-3">
+							<label for="nameField" class="form-label">Your Name:</label>
+							<input type="text" name="name" class="form-control" id="nameField" placeholder="Giallo Vero" required>
+						</div>
+						<div class="mb-3">
+							<label for="emailField" class="form-label">Your Email:</label>
+							<input type="email" name="email" class="form-control" id="emailField" placeholder="name@example.com" required>
+						</div>
+						<div class="mb-3">
+							<label for="messageField" class="form-label">Your Message:</label>
+							<textarea class="form-control" name="message" id="messageField" rows="3" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-warning">Submit</button>
+					</form>
+				</div>
+			</div>
 		</section> 
 	</main> 
+
 	<footer class="mt-auto">
 		<div class="container d-flex align-items-center mb-3">
 			<a href="#">
@@ -181,5 +178,18 @@
 		</div>
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script>
+		window.formspree =
+			window.formspree 
+			function () {
+			(formspree.q = formspree.q  []).push(arguments);
+			};
+		formspree("initForm", {
+			formElement: "#my-form",
+			formId: "mbgjyepq",
+		});
+	</script>
+	<!--<script src="/assets/js/send_mail.js"></script>-->
+	<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
