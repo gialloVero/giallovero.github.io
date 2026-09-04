@@ -87,6 +87,47 @@ li .bi {
 	filter: brightness(1.15);
 }
 
+.btn-form,
+.btn-form:disabled {
+	--color-selected: #88179c;
+	background-color:  var(--color-selected) !important;
+	border-color:  var(--color-selected) !important;
+	transition: background-color 0.2s ease;
+	color: #ffffff !important;
+}
+
+.btn-form:hover,
+.btn-form:focus,
+.btn-form:active,
+.btn-form:focus-visible {
+	--color-selected: #a116bd;
+	background-color: var(--color-selected) !important;
+	border-color: var(--color-selected) !important;
+	color: #ffffff !important;
+}
+
+.alert[data-fs-error] {
+    background-color: var(--bs-danger-bg-subtle) !important;
+    border-color: var(--bs-danger-border-subtle) !important;
+    color: var(--bs-danger-text-emphasis) !important;
+}
+
+.alert[data-fs-success] {
+    background-color: var(--bs-success-bg-subtle) !important;
+    border-color: var(--bs-success-border-subtle) !important;
+    color: var(--bs-success-text-emphasis) !important;
+}
+
+.alert[data-fs-error],
+.alert[data-fs-success] {
+    display: none;
+}
+
+.alert[data-fs-error][data-fs-active],
+.alert[data-fs-success][data-fs-active] {
+    display: block;
+}
+
 @font-face {
 	font-family: "AgencyR_FB";
 	src: url("/assets/fonts/AGENCYR.woff2") format("woff2"),

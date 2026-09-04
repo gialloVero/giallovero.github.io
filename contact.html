@@ -138,27 +138,68 @@
 		</section>
 		<section id="highlight">
 			<div class="container mt-3">
-				<h2>Send me a Message</h2>
 				<div class="row g-4">
-					<form class="col-12 col-md-8" id="contactForm">
-						<div class="mb-3">
-							<label for="nameField" class="form-label">Your Name:</label>
-							<input type="text" name="name" class="form-control" id="nameField" placeholder="Giallo Vero" required>
-						</div>
-						<div class="mb-3">
-							<label for="emailField" class="form-label">Your Email:</label>
-							<input type="email" name="email" class="form-control" id="emailField" placeholder="name@example.com" required>
-						</div>
-						<div class="mb-3">
-							<label for="messageField" class="form-label">Your Message:</label>
-							<textarea class="form-control" name="message" id="messageField" rows="3" required></textarea>
-						</div>
-						<button type="submit" class="btn btn-warning">Submit</button>
-					</form>
+
+					<!-- Text -->
+					<div class="col-12 col-md-5 me-auto">
+						<br>
+						<p class="mb-0">You can contact me on my social media accounts, <br> or through the form below. 
+							<br>I am always responsive</p>
+
+							<br><br>
+							<!-- p>Or send me a mail at <a href="mailto:   ">       </a></p -->
+					</div>
+
+					<!-- Form -->
+					<div class="col-12 col-md-6">
+						<h3 class="agency-bold-font mb-3">Send me a Message</h3>
+						<form class="needs-validation" id="contactForm" novalidate>
+							<div class="mb-3">
+								<label for="nameField" class="form-label">Your Name:</label>
+								<input type="text" name="name" class="form-control" id="nameField" placeholder="Ka' Sandro de Tortisio" required>
+								<div class="invalid-feedback">
+									Can't be empty and must contain only letters and spaces.
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="emailField" class="form-label">Your Email:</label>
+								<input type="email" name="email" class="form-control" id="emailField" placeholder="verycool@domain.expansion.com" required>
+								<div class="invalid-feedback">
+									Enter a valid email address.
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="messageField" class="form-label">Your Message:</label>
+								<textarea class="form-control" name="message" id="messageField" rows="3" required></textarea>
+								<div class="invalid-feedback">
+									Can't be empty.
+								</div>
+							</div>
+							<div class="alert alert-danger alert-dismissible" role="alert" data-fs-error>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+									<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+								</svg>
+								<span class="align-middle ms-1">
+									<strong>Error!</strong> There was an error sending your message. Please try again later.
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</span>
+							</div>
+							<div class="alert alert-success alert-dismissible" role="alert" data-fs-success>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+									<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+								</svg>
+								<span class="align-middle ms-1">
+									<strong>Success!</strong> Your message has been sent.
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</span>
+							</div>
+							<button type="submit" class="btn btn-form" data-fs-submit-btn>Send</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</section> 
-	</main> 
+	</main> <hr>
 
 	<footer class="mt-auto">
 		<div class="container d-flex align-items-center mb-3">
@@ -178,18 +219,7 @@
 		</div>
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script>
-		window.formspree =
-			window.formspree 
-			function () {
-			(formspree.q = formspree.q  []).push(arguments);
-			};
-		formspree("initForm", {
-			formElement: "#my-form",
-			formId: "mbgjyepq",
-		});
-	</script>
-	<!--<script src="/assets/js/send_mail.js"></script>-->
+	<script src="/assets/js/send_mail.js"></script>
 	<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
