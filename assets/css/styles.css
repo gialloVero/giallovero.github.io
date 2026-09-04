@@ -44,47 +44,62 @@ li .bi {
 
 .btn.btn-tag-selected,
 .btn.btn-tag-selected.active,
-.btn.btn-tag-selected:hover,
 .btn.btn-tag-selected:focus,
 .btn.btn-tag-selected:active {
 	--color-selected: #88179c;
-	--color-selected-border: #a733be;
+	--color-selected-border: #a116bd;
 	background-color: var(--color-selected);
 	border-color: var(--color-selected-border);
 	color: #ffffff;
 }
 
-.badge-selected, .badge-selected:hover {
-	cursor: default;
+.btn.btn-tag-selected:hover {
+	background-color: var(--color-selected-border);
+	color: #ffffff;
 }
 
 .btn.btn-tag-unselected,
-.btn.btn-tag-unselected.active,
-.badge-unselected {
+.btn.btn-tag-unselected.active {
 	--color-selected: #3c4144;
 	--color-selected-border: #61696e;
 	--color-selected-hover: #61696e;
 	background-color: var(--color-selected);
 	border: 1px solid var(--color-selected-border);
-	color: #ffffffa9;
+	color: #b9b9b9;
 }
 
 .btn.btn-tag-unselected:hover,
 .btn.btn-tag-unselected:focus,
 .btn.btn-tag-unselected:active {
 	background-color: var(--color-selected-hover);
-	border-color: var(--color-selected-hover);
+	color: #eeeeee;
 }
 
-.card-project .badge, 
+.card-project .badge,
 .card-highlight .badge {
+	border: 1px solid transparent;
 	transition: background-color 0.2s ease;
+}
+
+.card-project .badge-selected,
+.card-project .badge-selected:hover {
+	cursor: default;
+}
+
+.card-project .badge.badge-unselected,
+.card-highlight .badge.badge-unselected {
+	--color-selected: #3c4144;
+	--color-selected-border: #61696e;
+	background-color: var(--color-selected);
+	border-color: var(--color-selected-border);
+	color: #b9b9b9;
 }
 
 .card-project .badge:hover:not(.badge-selected),
 .card-highlight .badge:hover:not(.badge-selected) {
-	cursor: pointer;
 	filter: brightness(1.15);
+	cursor: pointer;
+	color: #c0c0c0;
 }
 
 .btn-form,
@@ -107,31 +122,45 @@ li .bi {
 }
 
 .alert[data-fs-error] {
-    background-color: var(--bs-danger-bg-subtle) !important;
-    border-color: var(--bs-danger-border-subtle) !important;
-    color: var(--bs-danger-text-emphasis) !important;
+	background-color: var(--bs-danger-bg-subtle) !important;
+	border-color: var(--bs-danger-border-subtle) !important;
+	color: var(--bs-danger-text-emphasis) !important;
 }
 
 .alert[data-fs-success] {
-    background-color: var(--bs-success-bg-subtle) !important;
-    border-color: var(--bs-success-border-subtle) !important;
-    color: var(--bs-success-text-emphasis) !important;
+	background-color: var(--bs-success-bg-subtle) !important;
+	border-color: var(--bs-success-border-subtle) !important;
+	color: var(--bs-success-text-emphasis) !important;
 }
 
 .alert[data-fs-error],
 .alert[data-fs-success] {
-    display: none;
+	display: none;
 }
 
 .alert[data-fs-error][data-fs-active],
 .alert[data-fs-success][data-fs-active] {
-    display: block;
+	display: flex;
+	align-items: center;
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+}
+
+.alert[data-fs-error][data-fs-active] .btn-close,
+.alert[data-fs-success][data-fs-active] .btn-close {
+	position: static;
+	margin-left: auto;
+	flex-shrink: 0;
+}
+
+.alert[data-fs-active][data-dismissed] {
+	display: none !important;
 }
 
 @font-face {
 	font-family: "AgencyR_FB";
 	src: url("/assets/fonts/AGENCYR.woff2") format("woff2"),
-			url("/assets/fonts/AGENCYR.TTF") format("truetype");
+		url("/assets/fonts/AGENCYR.TTF") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -139,7 +168,7 @@ li .bi {
 @font-face {
 	font-family: "AgencyB_FB";
 	src: url("/assets/fonts/AGENCYB.woff2") format("woff2"),
-			url("/assets/fonts/AGENCYB.TTF") format("truetype");
+		url("/assets/fonts/AGENCYB.TTF") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
