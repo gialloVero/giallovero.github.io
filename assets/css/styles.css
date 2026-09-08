@@ -157,6 +157,35 @@ li .bi {
 	display: none !important;
 }
 
+.custom-slider {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 6px;
+	border-radius: 5px;
+	background: #495057; /* Default empty color */
+	outline: none;
+}
+
+.custom-slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #ffffff;
+	cursor: pointer;
+}
+
+.custom-slider::-moz-range-thumb {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #ffffff;
+	cursor: pointer;
+	border: none;
+}
+
 @font-face {
 	font-family: "AgencyR_FB";
 	src: url("/assets/fonts/AGENCYR.woff2") format("woff2"),

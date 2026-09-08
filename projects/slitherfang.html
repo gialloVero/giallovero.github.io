@@ -218,7 +218,7 @@
 
 			<!-- Tracks Samples -->
 			<br>
-			<div class="container mt-4 mt-" style="background-image: url('/assets/images/BackGrounds/Automation_bg.png'); 
+			<div class="container mt-4" style="background-image: url('/assets/images/BackGrounds/Automation_bg.png'); 
 				width: 100%;
 				background-repeat: no-repeat; 
 				background-size: cover;
@@ -228,39 +228,158 @@
 				<h2 class="agency-bold-font">Sound Layers Breakdown</h2>
 				<br>
 				
-				<div class="sound-design-breakdown">
+				<div class="row g-4 sound-design-breakdown">
+					<div class="col-md-4 text-start">
+						<div class="d-flex justify-content-center mb-4">
+							<button id="masterPlayBtn" class="btn btn-primary btn-lg w-50 fw-bold">
+								PLAY
+							</button>
+						</div>
+						
+						<hr class="border-secondary">
 
-					<div class="sound-player">
-						<h4 class="agency-font">Roar</h4>
-						<audio controls>
-							<source src="/assets/sounds/slitherfang_layer-001_roar.mp3" type="audio/mpeg">
-						</audio>
-					</div> <br>
+						<!-- Hidden Audio Sources -->
+						<audio id="audioRoar" class="mixer-track" src="/assets/sounds/slitherfang_layer-001_roar.mp3"></audio>
+						<audio id="audioBuzz" class="mixer-track" src="/assets/sounds/slitherfang_layer-002_bzz.mp3"></audio>
+						<audio id="audioRattle" class="mixer-track" src="/assets/sounds/slitherfang_layer-003_rattle.mp3"></audio>
+						<audio id="audioSfx" class="mixer-track" src="/assets/sounds/slitherfang_layer-004_sfx.mp3"></audio>
+						<audio id="audioAmbience" class="mixer-track" src="/assets/sounds/slitherfang_layer-005_ambience.mp3"></audio>
 
-					<div class="sound-player">
-						<h4 class="agency-font">Buzzing</h4>
-						<audio controls>
-							<source src="/assets/sounds/slitherfang_layer-002_bzz.mp3" type="audio/mpeg">
-						</audio>
-					</div><br>
-					<div class="sound-player">
-						<h4 class="agency-font">Rattle</h4>
-						<audio controls>
-							<source src="/assets/sounds/slitherfang_layer-003_rattle.mp3" type="audio/mpeg">
-						</audio>
-					</div><br>
-					<div class="sound-player">
-						<h4 class="agency-font">SFXs</h4>
-						<audio controls>
-							<source src="/assets/sounds/slitherfang_layer-004_sfx.mp3" type="audio/mpeg">
-						</audio>
-					</div><br>
-					<div class="sound-player">
-						<h4 class="agency-font">Ambience</h4>
-						<audio controls>
-							<source src="/assets/sounds/slitherfang_layer-005_ambience.mp3" type="audio/mpeg">
-						</audio>
-					</div><br>
+						<!-- Mixer Tracks UI -->
+						<div class="container-fluid px-0">
+							
+							<!-- Roar Track -->
+							<div class="row align-items-center mb-3">
+								<div class="col-4 col-md-3">
+									<h5 class="agency-font m-0 text-nowrap">Roar</h5>
+								</div>
+								<div class="col-2 col-md-1 text-center">
+									<button class="btn btn-link text-light p-0 mute-btn" data-target="audioRoar" aria-label="Mute">
+										<!-- Volume ON Icon -->
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
+											<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+											<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+											<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+										</svg>
+										<!-- Volume OFF Icon (Hidden by default) -->
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
+											<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+										</svg>
+									</button>
+								</div>
+								<div class="col-6 col-md-8">
+									<input type="range" class="custom-slider volume-slider" data-target="audioRoar" min="0" max="1" step="0.01" value="1">
+								</div>
+							</div>
+
+							<!-- Buzzing Track -->
+							<div class="row align-items-center mb-3">
+								<div class="col-4 col-md-3">
+									<h5 class="agency-font m-0 text-nowrap">Buzzing</h5>
+								</div>
+								<div class="col-2 col-md-1 text-center">
+
+									<button class="btn btn-link text-light p-0 mute-btn" data-target="audioBuzz" aria-label="Mute">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
+											<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+											<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+											<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+										</svg>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
+											<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+										</svg>
+									</button>
+								</div>
+								<div class="col-6 col-md-8">
+									<input type="range" class="custom-slider volume-slider" data-target="audioBuzz" min="0" max="1" step="0.01" value="1">
+								</div>
+							</div>
+
+							<!-- Rattle Track -->
+							<div class="row align-items-center mb-3">
+								<div class="col-4 col-md-3">
+									<h5 class="agency-font m-0 text-nowrap">Rattle</h5>
+								</div>
+								<div class="col-2 col-md-1 text-center">
+
+									<button class="btn btn-link text-light p-0 mute-btn" data-target="audioRattle" aria-label="Mute">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
+											<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+											<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+											<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+										</svg>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
+											<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+										</svg>
+									</button>
+								</div>
+								<div class="col-6 col-md-8">
+									<input type="range" class="custom-slider volume-slider" data-target="audioRattle" min="0" max="1" step="0.01" value="1">
+								</div>
+							</div>
+
+							<!-- SFXs Track -->
+							<div class="row align-items-center mb-3">
+								<div class="col-4 col-md-3">
+									<h5 class="agency-font m-0 text-nowrap">SFXs</h5>
+								</div>
+								<div class="col-2 col-md-1 text-center">
+
+									<button class="btn btn-link text-light p-0 mute-btn" data-target="audioSfx" aria-label="Mute">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
+											<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+											<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+											<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+										</svg>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
+											<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+										</svg>
+									</button>
+								</div>
+								<div class="col-6 col-md-8">
+									<input type="range" class="custom-slider volume-slider" data-target="audioSfx" min="0" max="1" step="0.01" value="1">
+								</div>
+							</div>
+
+							<!-- Ambience Track -->
+							<div class="row align-items-center mb-3">
+								<div class="col-4 col-md-3">
+									<h5 class="agency-font m-0 text-nowrap">Ambience</h5>
+								</div>
+								<div class="col-2 col-md-1 text-center">
+
+									<button class="btn btn-link text-light p-0 mute-btn" data-target="audioAmbience" aria-label="Mute">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
+											<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+											<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+											<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+										</svg>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
+											<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+										</svg>
+									</button>
+								</div>
+								<div class="col-6 col-md-8">
+									<input type="range" class="custom-slider volume-slider" data-target="audioAmbience" min="0" max="1" step="0.01" value="1">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-8">
+						<div class="col-md-8 text-center">
+							<div class="ratio ratio-16x9">
+								<video id="masterVideo" class="object-fit-cover" playsinline controls>
+									<source src="/assets/videos/slitherfang_video.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -285,5 +404,6 @@
 		</div>
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/js/mixer_logic.js"></script>
 </body>
 </html>
