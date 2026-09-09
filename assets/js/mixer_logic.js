@@ -23,11 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		iconOn.classList.toggle('d-none', isMuted);
 		iconOff.classList.toggle('d-none', !isMuted);
-
 		button.setAttribute('aria-pressed', String(isMuted));
+
 		if (button !== volumeMasterBtn) {
 			const slider = document.querySelector(`.volume-slider[data-target="${button.getAttribute('data-target')}"]`);
-			updateSliderBackground(slider);
+
+			if (slider) {
+				updateSliderBackground(slider);
+			}
+
 			button.setAttribute('aria-label', isMuted ? 'Unmute' : 'Mute');
 		} else {
 			button.setAttribute('aria-label', isMuted ? 'Unmute all sounds' : 'Mute all sounds');
@@ -36,14 +40,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function updateTracksUI() {
 		audioTracks.forEach(track => {
-			const trackVolume = Number(track.dataset.trackVolume || 1) * masterVolume;
-			track.volume = trackVolume;
-			track.muted = trackVolume == 0;
-
+			const trackVolume = Number(track.dataset.trackVolume || 1);
+			
+			track.volume = masterMuted ? 0 : trackVolume * masterVolume;
+			
+			const muted = track.volume === 0;
 			const relatedMuteBtn = document.querySelector(`.mute-btn[data-target="${track.id}"]`);
 			if (relatedMuteBtn)
-				updateMuteUI(relatedMuteBtn, track.muted);
+				updateMuteUI(relatedMuteBtn, muted);
+
+			const relatedSlider = document.querySelector(`.volume-slider[data-target="${track.id}"]`);
+			if (relatedSlider) {
+				if (muted) {
+					relatedSlider.dataset.previousValue = relatedSlider.value;
+					relatedSlider.value = 0;
+				} else {
+					relatedSlider.value = track.dataset.trackVolume || 1;
+				}
+
+				updateSliderBackground(relatedSlider);
+			}
 		});
+	}
+
+	function unmuteMaster() {
+		if (masterMuted) {
+			masterMuted = false;
+			volumeMaster.value = previousMasterVolume || 1;
+			masterVolume = Number(volumeMaster.value);
+			updateMuteUI(volumeMasterBtn, masterMuted);
+			updateSliderBackground(volumeMaster);
+		}
 	}
 
 	// --- 1. Master Play/Pause Control ---
@@ -70,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	volumeMaster.addEventListener('input', (e) => {
 		masterVolume = Number(e.target.value);
-		masterMuted = masterVolume == 0;
+		masterMuted = masterVolume === 0;
 
 		if (!masterMuted) {
 			previousMasterVolume = masterVolume;
@@ -95,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		updateTracksUI();
-		updateSliderBackground(volumeMaster);
 		updateMuteUI(volumeMasterBtn, masterMuted);
+		updateSliderBackground(volumeMaster);
 	});
 
 	// --- 4. Initialize and Listen to Volume Sliders ---
@@ -114,11 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			const track = document.getElementById(slider.dataset.target);
 			
 			if (track) {
+				unmuteMaster(e.target.value);
+
 				const newVolume = Number(e.target.value) * masterVolume;
 
 				track.dataset.trackVolume = e.target.value;
 				track.volume = newVolume;
-				track.muted = newVolume == 0;
+				track.muted = newVolume === 0;
 				
 				const relatedMuteBtn = document.querySelector(`.mute-btn[data-target="${track.id}"]`);
 				if (relatedMuteBtn)
@@ -136,8 +165,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			const targetAudio = document.getElementById(btnElement.getAttribute('data-target'));
 			
 			if (targetAudio) {
-				targetAudio.muted = !targetAudio.muted;
+				targetAudio.muted = targetAudio.volume === 0 ? false : !targetAudio.muted;
 				updateMuteUI(btnElement, targetAudio.muted);
+
+				if (targetAudio.muted) {
+					targetAudio.dataset.previousVolume = targetAudio.dataset.trackVolume || 1;
+					targetAudio.dataset.trackVolume = 0;
+					targetAudio.volume = 0;
+				} else {
+					targetAudio.dataset.trackVolume = targetAudio.dataset.previousVolume || 1;
+					targetAudio.volume = Number(targetAudio.dataset.trackVolume) * masterVolume;
+					unmuteMaster(targetAudio.dataset.trackVolume);
+				}
 
 				const slider = document.querySelector(`.volume-slider[data-target="${targetAudio.id}"]`);
 
