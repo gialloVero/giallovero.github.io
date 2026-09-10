@@ -19,28 +19,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 		row.replaceChildren();
 
 		matchingCards.forEach(card => {
-			const column = card.closest("[class*='col-']");
-			if (column)
-				row.appendChild(column.cloneNode(true));
+			const column = card.closest("[class*='col-']").cloneNode(true);
+
+			column.querySelectorAll(".tag-badge").forEach(badge => {
+				const tag = badge.dataset.tag;
+				const link = document.createElement("a");
+
+				link.href = `/projects.html?tag=${encodeURIComponent(tag)}`;
+				link.className = badge.className;
+				link.classList.add("text-decoration-none");
+				link.classList.remove("tag-badge");
+				link.textContent = badge.textContent;
+
+				badge.replaceWith(link);
+			});
+
+			row.appendChild(column);
 		});
 	} catch (error) {
 		console.error("Error loading project cards:", error);
 	}
 });
-
-// matchingCards.forEach(card => {
-//     const column = card.closest("[class*='col-']").cloneNode(true);
-
-//     column.querySelectorAll(".tag-badge").forEach(badge => {
-//         const tag = badge.dataset.tag;
-//         const link = document.createElement("a");
-
-//         link.href = `/projects.html?tag=${encodeURIComponent(tag)}`;
-//         link.className = badge.className;
-//         link.textContent = badge.textContent;
-
-//         badge.replaceWith(link);
-//     });
-
-//     row.appendChild(column);
-// });

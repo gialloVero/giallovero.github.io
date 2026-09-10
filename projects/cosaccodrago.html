@@ -134,40 +134,42 @@
 
 		<!-- Intro -->
 		<section id="intro"> 
-			<div class="container mt-2 mb-4">
+			<div class="container mt-4">
 
 				<!-- Title -->
-				<h1 class="agency-bold-font mb-1">Project Cosaccodrago</h1>
-				<div class="row align-items-center roboto-font">
+				<h1 class="agency-bold-font mb-4">Project Cosaccodrago</h1>
+				<div class="row align-items-start roboto-font">
 
 					<!-- Text -->
 					<div class="col-md-4 text-start">
 						<h3 class="agency-font">
 							3D Remake of the monster:
-							<a href="https://yugipedia.com/wiki/Mecha_Phantom_Beast_Dracossack"
+							<a href="https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=10534"
 								target="_blank"
 								rel="noopener noreferrer"
 								class="text-nowrap text-reset"
-								style="text-decoration: underline;"
 								data-bs-toggle="tooltip"
 								data-bs-placement="top"
 								title="Opens in a new page">
-								Mecha Phantom Beast Dracossack
+								<em style="color: #a4ff70; text-decoration: underline; text-decoration-color: #a4ff70;">
+									Mecha Phantom Beast Dracossack
+								</em>
 							</a>
 						</h3>
 						<br>
 						<!-- Project Goal -->						
 						<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
-							<h2 class="agency-bold-font"> Project Goal </h2></div>
-						<h5>Recreate a fully fledged, animated, game-ready asset with original sound effects and visual effects.</h5>
-						<br><br>
+							<h2 class="agency-bold-font"> Project Goal </h2>
+						</div>
+						<p>Recreate a fully fledged, animated, game-ready asset with original sound effects and visual effects.</p>
+						<br>
 						<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
 							<h2 class="agency-bold-font">Status: </h2>
 							<a href="/projects/empty.html" class="badge text-bg-warning text-decoration-none align-self-center">
 								WIP
 							</a>
 						</div>
-						<h5>Currently still work in progress. <br> *On hiatus since: 04/07/26 </h5>
+						<p>Currently still work in progress. <br> *On hiatus since: 04/07/26 </p>
 					</div>
 					<div class="col-md-8">	
 						<!-- intro Carusel -->
@@ -508,21 +510,32 @@
 
 						<!-- Text -->
 						<div class="col-md-10 text-start">
-
-							<p>More informations, updates and all time logs are available in the public 
+							
+							<p style="color: #ffdd33;">
+								
 								<a href="https://miro.com/app/board/uXjVG3gSDbk=/?share_link_id=43040009432"
 									target="_blank"
 									rel="noopener noreferrer"
 									class="text-reset">
-										<strong class="text-nowrap">Development Diary
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-												<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-											</svg>
-										</strong>
+									
+									<img 
+										src="/assets/svg/miro-icon.svg"
+										alt="Itch.io"
+										width="18"
+										height="18"
+										style="
+											vertical-align: middle;
+											margin-right: 4px;
+									">
+									More informations, updates and all time logs are available in the public
+									<span class="text-nowrap">Development Diary</span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+									</svg>
+									
 								</a>
 							</p>
 						</div>
-
 					</div>
 
 					<!-- Miro -->
@@ -541,8 +554,9 @@
 			</div>
 		</section>
 
+		<!-- Recent Projects -->
 		<section id="recentProjects" class="container mt-4">
-			<h1 class="agency-bold-font">Recent Projects</h1>
+			<h2 class="agency-bold-font">Recent Projects</h2>
 			<div class="container mt-3" id="projectsContainer" data-projects-id="Slitherfang,Prysn,GamerKart">
 				<div class="row g-4">
 					<!-- Project cards will be dynamically inserted here -->
@@ -567,6 +581,5 @@
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/assets/js/fetch_projects.js"></script>
-	<!-- <script src="/assets/js/filter_projects.js"></script> -->
 </body>
 </html>
