@@ -25,16 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		iconOff.classList.toggle('d-none', !isMuted);
 		button.setAttribute('aria-pressed', String(isMuted));
 
-		if (button !== volumeMasterBtn) {
-			const slider = document.querySelector(`.volume-slider[data-target="${button.getAttribute('data-target')}"]`);
-
-			if (slider) {
-				updateSliderBackground(slider);
-			}
-
-			button.setAttribute('aria-label', isMuted ? 'Unmute' : 'Mute');
-		} else {
+		if (button === volumeMasterBtn) {
 			button.setAttribute('aria-label', isMuted ? 'Unmute all sounds' : 'Mute all sounds');
+		} else {
+			button.setAttribute('aria-label', isMuted ? 'Unmute' : 'Mute');
 		}
 	}
 
