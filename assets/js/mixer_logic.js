@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function updateSliderBackground(slider) {
 		const percentage = (slider.value / slider.max) * 100;
-		slider.style.background = `linear-gradient(to right, #79ff84 ${percentage}%, #343a40 ${percentage}%)`;
+		slider.style.background = `linear-gradient(to right, #56fc64 ${percentage}%, #343a40 ${percentage}%)`;
 	}
 
 	function updateMuteUI(button, isMuted) {
@@ -75,7 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		audioTracks.forEach(track => {
-			track.muted = track !== trackUnmuted;
+			if (track !== trackUnmuted) {
+				track.muted = true;
+				track.volume = 0;
+			}
 		});
 	}
 
@@ -127,22 +130,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		updateSliderBackground(slider);
 
+		slider.addEventListener('mouseup', () => {
+			const newVolume = Number(slider.value);
+
+			if (track && newVolume > 0) {
+				track.dataset.trackVolume = newVolume;
+			}
+		});
+
 		slider.addEventListener('input', (e) => {
-			const track = document.getElementById(slider.dataset.target);
-			const newVolume = Number(e.target.value);
-
 			if (track) {
-				track.volume = newVolume * masterVolume;
-				track.muted = track.volume === 0;
-
-				if (!track.muted) {
-					track.dataset.trackVolume = newVolume;
-				}
+				const newVolume = Number(e.target.value);
 
 				if (newVolume > 0 && masterMuted) {
 					unmuteMaster(e.target);
 				}
 				
+				track.volume = newVolume * masterVolume;
+				track.muted = track.volume === 0;
+
 				const relatedMuteBtn = document.querySelector(`.mute-btn[data-target="${track.id}"]`);
 				if (relatedMuteBtn) {
 					updateMuteUI(relatedMuteBtn, track.muted);
