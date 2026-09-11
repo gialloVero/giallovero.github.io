@@ -1,16 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const masterVideo = document.getElementById('masterVideo');
-	const masterPlayBtn = document.getElementById('masterPlayBtn');
 	const audioTracks = document.querySelectorAll('.mixer-track');
 	const volumeMaster = document.getElementById('volume-master');
 	const volumeMasterBtn = document.getElementById('volume-master-btn');
 	const volumeSliders = document.querySelectorAll('.volume-slider');
 	const muteButtons = document.querySelectorAll('.mute-btn');
 
-	let isPlaying = false;
+	const masterVideo = document.getElementById('masterVideo');
+	const masterPlayBtn = document.getElementById('masterPlayBtn');
+	const videoTimeline = document.getElementById('videoTimeline');
+	const timeDisplay = document.getElementById('timeDisplay');
+	const fullscreenBtn = document.getElementById('fullscreenBtn');
+	const centerPlayPause = document.getElementById('centerPlayPause');
+
+
 	let masterVolume = Number(volumeMaster.value);
 	let masterMuted = false;
 	let previousMasterVolume = masterVolume;
+	let isPlaying = false;
+	let wasPlayingBeforeDrag = false;
 
 	function updateSliderBackground(slider) {
 		const percentage = (slider.value / slider.max) * 100;
@@ -67,26 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	// --- 1. Master Play/Pause Control ---
-	masterPlayBtn.addEventListener('click', () => {
-		isPlaying = !isPlaying;
-		if (isPlaying) {
-			masterPlayBtn.textContent = "PAUSE";
-			masterPlayBtn.classList.replace("btn-primary", "btn-danger");
-			audioTracks.forEach(track => {
-				track.currentTime = masterVideo.currentTime;
-				track.play();
-			});
-			masterVideo.play();
-		} else {
-			masterPlayBtn.textContent = "PLAY";
-			masterPlayBtn.classList.replace("btn-danger", "btn-primary");
-			audioTracks.forEach(track => track.pause());
-			masterVideo.pause();
-		}
-	});
-
-	// --- 2. Master Volume Control ---
+	// --- Audio Controls ---
+	// --- 1. Master Volume Control ---
 	updateSliderBackground(volumeMaster);
 
 	volumeMaster.addEventListener('input', (e) => {
@@ -102,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		updateSliderBackground(e.target);
 	});
 
-	// --- 3. Master Mute Button Control ---
+	// --- 2. Master Mute Button Control ---
 	volumeMasterBtn.addEventListener('click', () => {
 		masterMuted = !masterMuted;
 
@@ -120,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		updateSliderBackground(volumeMaster);
 	});
 
-	// --- 4. Initialize and Listen to Volume Sliders ---
+	// --- 3. Initialize and Listen to Volume Sliders ---
 	volumeSliders.forEach(slider => {
 		const targetAudio = document.getElementById(slider.dataset.target);
 
@@ -152,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	// --- 5. Mute Buttons Control ---
+	// --- 4. Mute Buttons Control ---
 	muteButtons.forEach(button => {
 		button.addEventListener('click', (e) => {
 			const btnElement = e.target.closest('.mute-btn');
@@ -187,24 +176,134 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	// --- 6. Keep Sync on Timeline Scrub ---
-	masterVideo.addEventListener('seeked', () => {
+	// --- Video Controls ---
+	function formatTime(seconds) {
+		const min = Math.floor(seconds / 60);
+		const sec = Math.floor(seconds % 60);
+		return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+	}
+
+	function animateCenterIcon(isPlayingNow) {
+		centerPlayPause.classList.remove('d-none');
+		centerPlayPause.style.animation = 'none';
+		centerPlayPause.offsetHeight;
+		centerPlayPause.style.animation = 'fadeScale 0.75s ease-out forwards';
+
+		const playIcon = centerPlayPause.querySelector('.play-icon');
+		const pauseIcon = centerPlayPause.querySelector('.pause-icon');
+		
+		if (isPlayingNow) {
+			playIcon.classList.add('d-none');
+			pauseIcon.classList.remove('d-none');
+		} else {
+			playIcon.classList.remove('d-none');
+			pauseIcon.classList.add('d-none');
+		}
+	}
+
+	function togglePlay() {
+		isPlaying = !isPlaying;
+		const playIcon = masterPlayBtn.querySelector('.play-icon');
+		const pauseIcon = masterPlayBtn.querySelector('.pause-icon');
+
+		animateCenterIcon(isPlaying);
+
+		if (isPlaying) {
+			playIcon.classList.add('d-none');
+			pauseIcon.classList.remove('d-none');
+			audioTracks.forEach(track => {
+				track.currentTime = masterVideo.currentTime;
+				track.play();
+			});
+			masterVideo.play();
+		} else {
+			playIcon.classList.remove('d-none');
+			pauseIcon.classList.add('d-none');
+			audioTracks.forEach(track => track.pause());
+			masterVideo.pause();
+		}
+	}
+
+	// --- 5. Master Play/Pause Control (Video & Button) ---
+	masterPlayBtn.addEventListener('click', togglePlay);
+	masterVideo.addEventListener('click', togglePlay);
+
+	// --- 6. Timeline and Time Display ---
+	masterVideo.addEventListener('loadedmetadata', () => {
+		videoTimeline.max = masterVideo.duration;
+		timeDisplay.textContent = `0:00 / ${formatTime(masterVideo.duration)}`;
+	});
+
+	masterVideo.addEventListener('timeupdate', () => {
+		if (!videoTimeline.dataset.isDragging) {
+			videoTimeline.value = masterVideo.currentTime;
+			updateSliderBackground(videoTimeline);
+			timeDisplay.textContent = `${formatTime(masterVideo.currentTime)} / ${formatTime(masterVideo.duration)}`;
+		}
+	});
+
+	// --- 8. Timeline Dragging Control ---
+	videoTimeline.addEventListener('mousedown', () => {
+		videoTimeline.dataset.isDragging = 'true';
+		wasPlayingBeforeDrag = isPlaying;
+
+		if (isPlaying) {
+			masterVideo.pause();
+			audioTracks.forEach(track => track.pause());
+		}
+	});
+
+	videoTimeline.addEventListener('mouseup', () => {
+		videoTimeline.dataset.isDragging = '';
+		
 		audioTracks.forEach(track => {
 			track.currentTime = masterVideo.currentTime;
 		});
+
+		if (wasPlayingBeforeDrag) {
+			masterVideo.play();
+			audioTracks.forEach(track => track.play());
+		}
+	});
+	
+	videoTimeline.addEventListener('input', (e) => {
+		const newTime = Number(e.target.value);
+		masterVideo.currentTime = newTime;
+		timeDisplay.textContent = `${formatTime(newTime)} / ${formatTime(masterVideo.duration)}`;
+		updateSliderBackground(e.target);
 	});
 
-	// --- 7. Handle Master Video Ended Event ---
+	// --- 9. Reset Video and Audio on End ---
 	masterVideo.addEventListener('ended', () => {
 		isPlaying = false;
 		
-		masterPlayBtn.textContent = "PLAY ALL";
-		masterPlayBtn.classList.replace("btn-danger", "btn-primary");
+		const playIcon = masterPlayBtn.querySelector('.play-icon');
+		const pauseIcon = masterPlayBtn.querySelector('.pause-icon');
+		playIcon.classList.remove('d-none');
+		pauseIcon.classList.add('d-none');
 		
 		masterVideo.currentTime = 0;
 		audioTracks.forEach(track => {
 			track.pause();
 			track.currentTime = 0;
 		});
+	});
+
+	// --- 10. Fullscreen Button Control ---
+	fullscreenBtn.addEventListener('click', () => {
+		const videoContainer = masterVideo.closest('.video-container');
+		if (!document.fullscreenElement) {
+			if (videoContainer.requestFullscreen) {
+				videoContainer.requestFullscreen();
+			} else if (videoContainer.webkitRequestFullscreen) { // Safari
+				videoContainer.webkitRequestFullscreen();
+			} else if (videoContainer.msRequestFullscreen) { // IE11
+				videoContainer.msRequestFullscreen();
+			}
+		} else {
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			}
+		}
 	});
 });

@@ -25,10 +25,10 @@ formspree("initForm", {
 		form.reset();
 		form.classList.remove('was-validated');
 
-        form.querySelectorAll('.is-valid, .is-invalid').forEach(field => {
-            field.classList.remove('is-valid', 'is-invalid');
-        });
-    }
+		form.querySelectorAll('.is-valid, .is-invalid').forEach(field => {
+			field.classList.remove('is-valid', 'is-invalid');
+		});
+	}
 });
 
 document.querySelectorAll(".alert-close").forEach((button) => {

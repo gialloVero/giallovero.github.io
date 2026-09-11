@@ -6,7 +6,7 @@
 	<meta name="author" content="gialloVero">
 	<meta name="description" content="a">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Spherical Anchor Project - Giallo</title>
+	<title>Grey Matter - Giallo</title>
 	<link rel="icon" href="/assets/images/Gi_Logo_Purple.png" type="image/x-icon">
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/styles.css">
@@ -137,66 +137,118 @@
 			<div class="container mt-4">
 
 				<!-- Title -->
-				<h1 class="agency-bold-font">Empty</h1>
-				<h2 class="agency-font">aka <em>"Empty"</em></h2>
+				<h1 class="agency-bold-font mb-4"> Computronium - <span class="text-nowrap">[Grey Matter Games]</span></h1>
 
 				<!-- Text + Carusel -->
-				<div class="row align-items-center roboto-font">
+				<div class="row align-items-start roboto-font">
 
 					<!-- Text -->
 					<div class="col-md-4 text-start">
-						<!-- h2 class="agency-font"> Sub title </h2 -->
-						<h3>Things</h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
+
+						<!-- Sub title -->
+						<h3 class="agency-font">My Internship at <span class="text-nowrap">Grey Matter Games</span></h3>
+						<br>
+						
+						<!-- Project Goal -->						
+						<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
+							<h2 class="agency-bold-font"> Project Goal </h2></div>
+						<p>
+							Computronium is an automation game based on building and managing a <span class="text-nowrap"> retro sci-fi</span> datacenter. <br>
+                            Currently in development.<br>
+                            It's designed to grant flexible multiplayer and full mod support to try to strive for a  <span class="text-nowrap">community first</span> approach for both advertisment and autonomus custom extra content.
+                            
+						</p>
+						<br><br>
+
+
+
+
+
+
 					</div>
 
-					<!-- Carousel -->
+					<!-- Video -->
 					<div class="col-md-8 text-center">
 
-						<div id="introCarousel"
-							class="carousel slide"
-							style="height: 350px;"
-							data-bs-ride="carousel"
-							data-bs-interval="6000">
-
-							<div class="carousel-inner h-100">
-
-								<!-- Picture 1 -->
-								<div class="carousel-item active h-100"
-								 	data-bs-interval="18000">
-									<div class="d-flex justify-content-center align-items-center h-100">
-										<img src="/assets/images/shipLooping.gif" 
-											alt="illustration of the Ship" 
-											title="illustration of the Ship" 
-											width="440"
-											height="365" 
-											loading="lazy">
-									</div>
-								</div>
-								<!-- Picture 2 -->
-							</div>
+						<div class="ratio ratio-16x9">
+							<iframe 
+								width="560" height="315" 
+								src="https://www.youtube.com/embed/uJ5SY40V_vc?si=sn3kn76ybT1BAkPM" 
+								title="YouTube video player" frameborder="0" allow="accelerometer; 
+								autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
+								web-share" referrerpolicy="strict-origin-when-cross-origin" 
+								allowfullscreen>
+							</iframe>
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</section> 
 
 		<section id="body">
+
+			<!-- My Learning Goal -->
+			<br>
+			<div class="container mt-4 mt-" style="background-image: url('/assets/images/BackGrounds/Automation_bg3.png'); 
+				width: 100%;
+				background-repeat: no-repeat; 
+				background-size: cover;
+				background-position: center center;">
+
+				<!-- Title -->
+				<h2 class="agency-bold-font">My Learning Goal</h2>
+
+				<!-- Text -->
+				<div class="col-md-6 text-start">
+					<p>
+						Things
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					<br><br>
+
+				</div>
+			</div>
+
+
+
+
+
+			<!-- More Projects -->
+			<section id="MoreProjects" class="container mt-4">
+				<h2 class="agency-bold-font">More Projects</h2>
+				<div class="container mt-3" id="projectsContainer" data-projects-id="Cosaccodrago,Slitherfang,Prysn">
+					<div class="row g-4">
+						<!-- Project cards will be dynamically inserted here -->
+					</div>
+				</div>
+			</section>
+
 		</section>
 	</main> <hr>
 
-	<footer class="mt-auto"> 
-		<a class="container d-flex align-items-center" href="/index.html">
-			<img src="/assets/images/Giallo_Logo_Purple.png" 
-			class="img-fluid"
-			alt="Giallo Logo"
-			style="width: clamp(120px, 15vw, 155px); height: auto;">
-		</a>
-		<p></p>
+	<footer class="mt-auto">
+		<div class="container d-flex align-items-center mb-3">
+			<a href="#">
+				<img src="/assets/images/Giallo_Logo_Purple.png" 
+					class="img-fluid"
+					alt="Giallo Logo"
+					style="width: clamp(120px, 15vw, 155px); height: auto;">
+			</a>
+
+			<p class="ms-auto mb-0 me-5 text-body-secondary text-end">
+				2026 Created by
+				<a href="https://github.com/gialloVero" target="_blank">GialloVero</a>
+				and
+				<a href="https://github.com/fracerba" target="_blank">fracerba</a>
+			</p>
+		</div>
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/js/fetch_projects.js"></script>
 </body>
 </html>

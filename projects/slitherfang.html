@@ -6,7 +6,7 @@
 	<meta name="author" content="gialloVero">
 	<meta name="description" content="a">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Giallo - Slitherfang SFX</title>
+	<title>Slitherfang SFX - Giallo</title>
 	<link rel="icon" href="/assets/images/Gi_Logo_Purple.png" type="image/x-icon">
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/styles.css">
@@ -168,7 +168,7 @@
 										fill="currentColor"
 										viewBox="0 0 16 16"
 										style="vertical-align: middle; margin-right: 4px;">
-        								<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>									</svg>
+										<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>									</svg>
 
 									Here is the original <span class="text-nowrap">in-game</span> scene I used for reference.
 								</a>
@@ -178,7 +178,6 @@
 
 					<!-- Video -->
 					<div class="col-md-8 text-center">
-
 						<div class="ratio ratio-16x9">
 							<iframe
 								src="https://www.youtube.com/embed/-lN-E4jRF6M?si=AbHrjJYlog_jW1om"
@@ -188,9 +187,7 @@
 								allowfullscreen>
 							</iframe>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 		</section> 
@@ -213,14 +210,12 @@
 					<!-- h3 class="agency-font">Progress</h3 -->
 					<p>In this project I was tasked with redesigning an existing creature from videogame or media,
 						and I choose the <em>Horizon</em> <em>Slitherfang</em>. <br>
-						I was curious to delve more in designing a  <span class="text-nowrap">syntetic / robotic</span> 
+						I was curious to delve more in designing a <span class="text-nowrap">syntetic / robotic</span> 
 						monster and wanted to puy more to the test the my 
 						<span class="text-nowrap">synth-focused</span> pipeline, 
 						assuming that it would have probably worked even smoother on a robotic creautre 
 					</p>
-
 					<br><br>
-
 				</div>
 			</div>
 
@@ -237,13 +232,8 @@
 				<h2 class="agency-bold-font">Sound Layers Breakdown</h2>
 				<br>
 				
-				<div class="row g-4 sound-design-breakdown">
+				<div class="row g-4 sound-design-breakdown align-items-center">
 					<div class="col-md-4 text-start">
-						<div class="d-flex justify-content-center mb-4">
-							<button id="masterPlayBtn" class="btn btn-primary btn-lg w-50 fw-bold">
-								PLAY
-							</button>
-						</div>
 						<div class="row align-items-center mb-3">
 							<div class="col-4 col-md-3">
 								<h5 class="agency-font m-0 text-nowrap">Volume</h5>
@@ -401,18 +391,69 @@
 						</div>
 					</div>
 
-					<div class="col-md-8">
-						<div class="col-md-8 text-center">
-							<div class="ratio ratio-16x9">
-								<video id="masterVideo" class="object-fit-cover" playsinline controls muted>
-									<source src="/assets/videos/slitherfang_video.mp4" type="video/mp4">
-									Your browser does not support the video tag.
-								</video>
+					<div class="col-md-6 position-relative video-container p-0 text-center ms-md-4">
+						<div class="ratio ratio-16x9 bg-dark">
+							<video id="masterVideo" class="object-fit-cover cursor-pointer" playsinline muted>
+								<source src="/assets/videos/slitherfang_video.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
+
+						<div id="centerPlayPause" class="position-absolute top-50 start-50 translate-middle center-icon-anim d-none">
+							<div class="bg-dark bg-opacity-50 rounded-circle d-flex justify-content-center align-items-center" style="width: 70px; height: 70px;">
+								<svg class="bi bi-play-fill play-icon text-white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+									<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+								</svg>
+								<svg class="bi bi-pause-fill pause-icon d-none text-white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+								</svg>
+							</div>
+						</div>
+
+						<!-- Custom Video Controls Overlay -->
+						<div class="video-controls-overlay position-absolute bottom-0 start-0 w-100 p-2 pt-4">
+							
+							<!-- Timeline Slider -->
+							<input type="range" id="videoTimeline" class="custom-slider w-100 mb-2" min="0" max="100" step="0.1" value="0">
+							
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="d-flex align-items-center gap-3">
+									<!-- Play/Pause Button -->
+									<button id="masterPlayBtn" class="btn btn-link text-white p-0 custom-control-btn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-play-fill play-icon" viewBox="0 0 16 16">
+											<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+										</svg>
+										<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-pause-fill pause-icon d-none" viewBox="0 0 16 16">
+											<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+										</svg>
+									</button>
+
+									<!-- Timestamp -->
+									<span id="timeDisplay" class="text-white small roboto-font">0:00 / 0:00</span>
+								</div>
+
+								<!-- Fullscreen Button -->
+								<button id="fullscreenBtn" class="btn btn-link text-white p-0 custom-control-btn">
+									<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
+										<path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"/>
+									</svg>
+								</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+			<!-- More Projects -->
+			<section id="MoreProjects" class="container mt-4">
+				<h2 class="agency-bold-font">More Projects</h2>
+				<div class="container mt-3" id="projectsContainer" data-projects-id="Cosaccodrago,Prysn,Greymatter">
+					<div class="row g-4">
+						<!-- Project cards will be dynamically inserted here -->
+					</div>
+				</div>
+			</section>
 
 		</section>
 	</main> <hr>
@@ -436,5 +477,6 @@
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/assets/js/mixer_logic.js"></script>
+	<script src="/assets/js/fetch_projects.js"></script>
 </body>
 </html>
