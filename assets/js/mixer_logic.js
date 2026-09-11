@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function updateSliderBackground(slider) {
 		const percentage = (slider.value / slider.max) * 100;
-		slider.style.background = `linear-gradient(to right, #0d6efd ${percentage}%, #343a40 ${percentage}%)`;
+		slider.style.background = `linear-gradient(to right, #79ff84 ${percentage}%, #343a40 ${percentage}%)`;
 	}
 
 	function updateMuteUI(button, isMuted) {
@@ -39,21 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	function updateTracksUI() {
+	function updateTracksUI(forceMute) {
 		audioTracks.forEach(track => {
 			const trackVolume = Number(track.dataset.trackVolume || 1);
 			
 			track.volume = masterMuted ? 0 : trackVolume * masterVolume;
-			
-			const muted = track.volume === 0;
+			track.muted = forceMute ? masterMuted : track.muted;
+
+			const muted = track.muted || track.volume === 0;
 			const relatedMuteBtn = document.querySelector(`.mute-btn[data-target="${track.id}"]`);
-			if (relatedMuteBtn)
+			if (relatedMuteBtn) {
 				updateMuteUI(relatedMuteBtn, muted);
+			}
 
 			const relatedSlider = document.querySelector(`.volume-slider[data-target="${track.id}"]`);
 			if (relatedSlider) {
 				if (muted) {
-					relatedSlider.dataset.previousValue = relatedSlider.value;
 					relatedSlider.value = 0;
 				} else {
 					relatedSlider.value = track.dataset.trackVolume || 1;
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	function unmuteMaster() {
+	function unmuteMaster(trackUnmuted) {
 		if (masterMuted) {
 			masterMuted = false;
 			volumeMaster.value = previousMasterVolume || 1;
@@ -72,23 +73,29 @@ document.addEventListener('DOMContentLoaded', () => {
 			updateMuteUI(volumeMasterBtn, masterMuted);
 			updateSliderBackground(volumeMaster);
 		}
+
+		audioTracks.forEach(track => {
+			track.muted = track !== trackUnmuted;
+		});
 	}
 
 	// --- Audio Controls ---
 	// --- 1. Master Volume Control ---
 	updateSliderBackground(volumeMaster);
 
+	volumeMaster.addEventListener('mousedown', () => {
+		if (masterVolume > 0) {
+			previousMasterVolume = masterVolume;
+		}
+	});
+
 	volumeMaster.addEventListener('input', (e) => {
 		masterVolume = Number(e.target.value);
 		masterMuted = masterVolume === 0;
 
-		if (!masterMuted) {
-			previousMasterVolume = masterVolume;
-		}
-
-		updateTracksUI();
+		updateTracksUI(false);
 		updateMuteUI(volumeMasterBtn, masterMuted);
-		updateSliderBackground(e.target);
+		updateSliderBackground(volumeMaster);
 	});
 
 	// --- 2. Master Mute Button Control ---
@@ -104,39 +111,43 @@ document.addEventListener('DOMContentLoaded', () => {
 			volumeMaster.value = masterVolume;
 		}
 
-		updateTracksUI();
+		updateTracksUI(true);
 		updateMuteUI(volumeMasterBtn, masterMuted);
 		updateSliderBackground(volumeMaster);
 	});
 
 	// --- 3. Initialize and Listen to Volume Sliders ---
 	volumeSliders.forEach(slider => {
-		const targetAudio = document.getElementById(slider.dataset.target);
+		const track = document.getElementById(slider.dataset.target);
 
-		if (targetAudio) {
-			targetAudio.dataset.trackVolume = slider.value;
-			targetAudio.volume = Number(slider.value) * masterVolume;
+		if (track) {
+			track.dataset.trackVolume = slider.value || 1;
+			track.volume = Number(slider.value) * masterVolume;
 		}
 
 		updateSliderBackground(slider);
 
 		slider.addEventListener('input', (e) => {
 			const track = document.getElementById(slider.dataset.target);
-			
+			const newVolume = Number(e.target.value);
+
 			if (track) {
-				unmuteMaster(e.target.value);
+				track.volume = newVolume * masterVolume;
+				track.muted = track.volume === 0;
 
-				const newVolume = Number(e.target.value) * masterVolume;
+				if (!track.muted) {
+					track.dataset.trackVolume = newVolume;
+				}
 
-				track.dataset.trackVolume = e.target.value;
-				track.volume = newVolume;
-				track.muted = newVolume === 0;
+				if (newVolume > 0 && masterMuted) {
+					unmuteMaster(e.target);
+				}
 				
 				const relatedMuteBtn = document.querySelector(`.mute-btn[data-target="${track.id}"]`);
-				if (relatedMuteBtn)
+				if (relatedMuteBtn) {
 					updateMuteUI(relatedMuteBtn, track.muted);
+				}
 			}
-			
 			updateSliderBackground(e.target);
 		});
 	});
@@ -145,30 +156,26 @@ document.addEventListener('DOMContentLoaded', () => {
 	muteButtons.forEach(button => {
 		button.addEventListener('click', (e) => {
 			const btnElement = e.target.closest('.mute-btn');
-			const targetAudio = document.getElementById(btnElement.getAttribute('data-target'));
+			const track = document.getElementById(btnElement.getAttribute('data-target'));
 			
-			if (targetAudio) {
-				targetAudio.muted = targetAudio.volume === 0 ? false : !targetAudio.muted;
-				updateMuteUI(btnElement, targetAudio.muted);
+			if (track) {
+				track.muted = track.volume !== 0;
+				updateMuteUI(btnElement, track.muted);
 
-				if (targetAudio.muted) {
-					targetAudio.dataset.previousVolume = targetAudio.dataset.trackVolume || 1;
-					targetAudio.dataset.trackVolume = 0;
-					targetAudio.volume = 0;
+				if (track.muted) {
+					track.volume = 0;
 				} else {
-					targetAudio.dataset.trackVolume = targetAudio.dataset.previousVolume || 1;
-					targetAudio.volume = Number(targetAudio.dataset.trackVolume) * masterVolume;
-					unmuteMaster(targetAudio.dataset.trackVolume);
+					track.volume = Number(track.dataset.trackVolume) * masterVolume;
+					unmuteMaster(track);
 				}
 
-				const slider = document.querySelector(`.volume-slider[data-target="${targetAudio.id}"]`);
+				const slider = document.querySelector(`.volume-slider[data-target="${track.id}"]`);
 
 				if (slider) {
-					if (targetAudio.muted) {
-						slider.dataset.previousValue = slider.value;
+					if (track.muted) {
 						slider.value = 0;
 					} else {
-						slider.value = slider.dataset.previousValue || 1;
+						slider.value = track.dataset.trackVolume || 1;
 					}
 					updateSliderBackground(slider);
 				}
@@ -183,11 +190,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		return `${min}:${sec < 10 ? '0' : ''}${sec}`;
 	}
 
+	function showStaticCenterPlayIcon() {
+		centerPlayPause.classList.remove('d-none', 'center-icon-anim');
+		centerPlayPause.style.opacity = '1';
+		centerPlayPause.style.transform = 'translate(-50%, -50%) scale(1)';
+		
+		const playIcon = centerPlayPause.querySelector('.play-icon');
+		const pauseIcon = centerPlayPause.querySelector('.pause-icon');
+		playIcon.classList.remove('d-none');
+		pauseIcon.classList.add('d-none');
+	}
+
 	function animateCenterIcon(isPlayingNow) {
 		centerPlayPause.classList.remove('d-none');
-		centerPlayPause.style.animation = 'none';
-		centerPlayPause.offsetHeight;
-		centerPlayPause.style.animation = 'fadeScale 0.75s ease-out forwards';
+		centerPlayPause.style.opacity = '';
+		centerPlayPause.style.transform = '';
+
+		centerPlayPause.classList.remove('center-icon-anim');
+		void centerPlayPause.offsetWidth;
+		centerPlayPause.classList.add('center-icon-anim');
 
 		const playIcon = centerPlayPause.querySelector('.play-icon');
 		const pauseIcon = centerPlayPause.querySelector('.pause-icon');
@@ -217,14 +238,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 			masterVideo.play();
 		} else {
-			playIcon.classList.remove('d-none');
 			pauseIcon.classList.add('d-none');
+			playIcon.classList.remove('d-none');
 			audioTracks.forEach(track => track.pause());
 			masterVideo.pause();
 		}
 	}
 
 	// --- 5. Master Play/Pause Control (Video & Button) ---
+	showStaticCenterPlayIcon();
+
 	masterPlayBtn.addEventListener('click', togglePlay);
 	masterVideo.addEventListener('click', togglePlay);
 
@@ -281,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const pauseIcon = masterPlayBtn.querySelector('.pause-icon');
 		playIcon.classList.remove('d-none');
 		pauseIcon.classList.add('d-none');
+		showStaticCenterPlayIcon();
 		
 		masterVideo.currentTime = 0;
 		audioTracks.forEach(track => {
@@ -292,7 +316,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	// --- 10. Fullscreen Button Control ---
 	fullscreenBtn.addEventListener('click', () => {
 		const videoContainer = masterVideo.closest('.video-container');
+		const fullIcon = fullscreenBtn.querySelector('.full-icon');
+		const exitIcon = fullscreenBtn.querySelector('.exit-full-icon');
+
 		if (!document.fullscreenElement) {
+			fullIcon.classList.add('d-none');
+			exitIcon.classList.remove('d-none');
+
 			if (videoContainer.requestFullscreen) {
 				videoContainer.requestFullscreen();
 			} else if (videoContainer.webkitRequestFullscreen) { // Safari
@@ -301,6 +331,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				videoContainer.msRequestFullscreen();
 			}
 		} else {
+			exitIcon.classList.add('d-none');
+			fullIcon.classList.remove('d-none');
+
 			if (document.exitFullscreen) {
 				document.exitFullscreen();
 			}

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="gialloVero">
-	<meta name="description" content="GialloVero's personal information">
+	<meta name="description" content="About Giallo">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>About Giallo</title>
 	<link rel="icon" href="/assets/images/Gi_Logo_Purple.png" type="image/x-icon">
@@ -30,7 +30,7 @@
 						<a class="nav-link fs-5" href="/projects.html">Projects</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link fs-5 active" href="#"><u>About Me</u></a>
+						<a class="nav-link fs-5" href="/about.html">About Me</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link fs-5" href="/contact.html">Contacts</a>
@@ -137,23 +137,34 @@
 			<div class="container mt-4">
 
 				<!-- Title -->
-				<h1 class="agency-bold-font">Empty</h1>
-				<h2 class="agency-font">aka <em>"Empty"</em></h2>
+				<h1 class="agency-bold-font mb-4">Empty</h1>
 
 				<!-- Text + Carusel -->
-				<div class="row align-items-center roboto-font">
+				<div class="row align-items-start roboto-font">
 
 					<!-- Text -->
 					<div class="col-md-4 text-start">
-						<!-- h2 class="agency-font"> Sub title </h2 -->
-						<h3>Things</h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
+
+						<!-- Sub title -->
+						<h3 class="agency-font">aka <em>Empty</em></h3>
+						<br>
+						
+						<!-- I am -->						
+						<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
+							<h2 class="agency-bold-font"> Giallo Vero </h2></div>
+						<p>
+							/////////////////////
+						</p>
+						<br><br>
+
+
+
+
+
+
 					</div>
 
-					<!-- Carousel -->
+					<!-- Carousel / Video -->
 					<div class="col-md-8 text-center">
 
 						<div id="introCarousel"
@@ -185,6 +196,47 @@
 		</section> 
 
 		<section id="body">
+
+			<!-- More -->
+			<br>
+			<div class="container mt-4 mt-" style="background-image: url('/assets/images/BackGrounds/Automation_bg3.png'); 
+				width: 100%;
+				background-repeat: no-repeat; 
+				background-size: cover;
+				background-position: center center;">
+
+				<!-- Title -->
+				<h2 class="agency-bold-font">Some more</h2>
+
+				<!-- Text -->
+				<div class="col-md-6 text-start">
+					<p>
+						Things
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					<br><br>
+
+				</div>
+			</div>
+
+
+
+
+
+			<!-- More Projects -->
+			<section id="MoreProjects" class="container mt-5">
+				<h2 class="agency-bold-font">More Projects</h2>
+				<div class="container mt-3" id="projectsContainer" data-projects-id="Cosaccodrago,Slitherfang,Prysn">
+					<div class="row g-4">
+						<!-- Project cards will be dynamically inserted here -->
+					</div>
+				</div>
+			</section>
+
 		</section>
 	</main> <hr>
 
@@ -206,5 +258,6 @@
 		</div>
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/js/fetch_projects.js"></script>
 </body>
 </html>

@@ -236,20 +236,18 @@ li .bi {
 }
 
 .center-icon-anim {
-    z-index: 20;
-    pointer-events: none;
-    animation: fadeScale 0.75s ease-out forwards;
+	animation: fadeScale 0.75s ease-out forwards;
 }
 
 @keyframes fadeScale {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.3);
-    }
+	0% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.3);
+	}
 }
 
 @font-face {
