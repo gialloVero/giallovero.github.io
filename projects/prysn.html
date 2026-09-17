@@ -264,7 +264,7 @@
 			</div>
 			
 			<!-- Sound Design & Implementation -->
-			<div class="container mt-4 mt-">
+			<div class="container mt-4 mt-" >
 				<!-- Text + Carusel -->
 				<div class="row align-items-start roboto-font">
 
@@ -272,7 +272,7 @@
 					<div class="col-md-4 text-start">
 
 						<!-- Title -->
-						<h1 class="agency-bold-font mb-4">Sound Design & Implementation</h1>
+						<h2 class="agency-bold-font mb-4">Sound Design & Implementation</h2>
 
 						<!-- Sub title -->
 						<h3 class="agency-font">aka <em>Empty</em></h3>
@@ -284,36 +284,143 @@
 						<p>
 							It's Empty Dumpty.
 						</p>
-						<br><br>
+						<br><br>		
 
 					</div>
 
 					<!-- Carousel / Video -->
 					<div class="col-md-8 text-center">
 
-						<div id="introCarousel"
-							class="carousel slide"
-							style="height: 350px;"
-							data-bs-ride="carousel"
-							data-bs-interval="6000">
+						<!-- Tracks Samples -->
+						<br>
+						<div class="container mt-4" style="background-image: url('/assets/images/BackGrounds/Automation_bg.png'); 
+							width: 100%;
+							background-repeat: no-repeat; 
+							background-size: cover;
+							background-position: center center;">
 
-							<div class="carousel-inner h-100">
+							<!-- Title -->
+							<h2 class="agency-bold-font">Sample of in game SFX</h2>
+							<p>
+								This is one example of sounds made for in the game. For 
+							</p>
+							
+							<div class="row g-4 sound-design-breakdown align-items-center">
+								<div class="col-md-4 text-start">
+									<div class="row align-items-center mb-3">
+										<div class="col-4 col-md-3">
+											<h5 class="agency-font m-0 text-nowrap">Volume</h5>
+										</div>
+										<div class="col-2 col-md-1 text-center">
+											<button class="btn btn-link text-light p-0" id="volume-master-btn" aria-label="Mute">
+												<!-- Volume ON Icon -->
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
+													<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+													<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+													<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+												</svg>
+												<!-- Volume OFF Icon (Hidden by default) -->
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
+													<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+												</svg>
+											</button>
+										</div>
+										<div class="col-6 col-md-8">
+											<input type="range" class="custom-slider" id="volume-master" min="0" max="1" step="0.01" value="0.5">
+										</div>
+									</div>
+									
+									<hr class="border-secondary">
 
-								<!-- Picture 1 -->
-								<div class="carousel-item active h-100"
-										data-bs-interval="18000">
-									<div class="d-flex justify-content-center align-items-center h-100">
-										<img src="/assets/images/shipLooping.gif" 
-											alt="illustration of the Ship" 
-											title="illustration of the Ship" 
-											width="440"
-											height="365" 
-											loading="lazy">
+									<!-- Hidden Audio Sources -->
+									<audio id="audioRoar" class="mixer-track" src="/assets/sounds/slitherfang_layer-001_roar.mp3"></audio>
+									
+									<!-- Mixer Tracks UI -->
+									<div class="container-fluid px-0">
+										
+										<!-- Roar Track -->
+										<div class="row align-items-center mb-3">
+											<div class="col-4 col-md-3">
+												<h3 class="agency-font m-0 text-nowrap">Roar</h3>
+											</div>
+											<div class="col-2 col-md-1 text-center">
+												<button class="btn btn-link text-light p-0 mute-btn" data-target="audioRoar" aria-label="Mute">
+													<!-- Volume ON Icon -->
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
+														<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+														<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+														<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+													</svg>
+													<!-- Volume OFF Icon (Hidden by default) -->
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
+														<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+													</svg>
+												</button>
+											</div>
+											<div class="col-6 col-md-8">
+												<input type="range" class="custom-slider volume-slider" data-target="audioRoar" min="0" max="1" step="0.01" value="0.5">
+											</div>
+										</div>
 									</div>
 								</div>
-								<!-- Picture 2 -->
+
+								<div class="col-md-6 position-relative video-container p-0 text-center ms-md-4">
+									<div class="ratio ratio-16x9 bg-dark">
+										<video id="masterVideo" class="object-fit-cover cursor-pointer" playsinline muted>
+											<source src="/assets/videos/slitherfang_video.mp4" type="video/mp4">
+											Your browser does not support the video tag.
+										</video>
+									</div>
+
+									<div id="centerPlayPause" class="position-absolute top-50 start-50 translate-middle" style="z-index: 20; pointer-events: none;">
+										<div class="bg-dark bg-opacity-50 rounded-circle d-flex justify-content-center align-items-center" style="width: 70px; height: 70px;">
+											<svg class="bi bi-play-fill play-icon text-white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+												<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+											</svg>
+											<svg class="bi bi-pause-fill pause-icon d-none text-white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+												<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+											</svg>
+										</div>
+									</div>
+
+									<!-- Custom Video Controls Overlay -->
+									<div class="video-controls-overlay position-absolute bottom-0 start-0 w-100 p-2 pt-4">
+										
+										<!-- Timeline Slider -->
+										<input type="range" id="videoTimeline" class="custom-slider w-100 mb-2" min="0" max="100" step="0.1" value="0">
+										
+										<div class="d-flex justify-content-between align-items-center">
+											<div class="d-flex align-items-center gap-3">
+												<!-- Play/Pause Button -->
+												<button id="masterPlayBtn" class="btn btn-link text-white p-0 custom-control-btn">
+													<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-play-fill play-icon" viewBox="0 0 16 16">
+														<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+													</svg>
+													<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-pause-fill pause-icon d-none" viewBox="0 0 16 16">
+														<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+													</svg>
+												</button>
+
+												<!-- Timestamp -->
+												<span id="timeDisplay" class="text-white small roboto-font">0:00 / 0:00</span>
+											</div>
+
+											<!-- Fullscreen Button -->
+											<button id="fullscreenBtn" class="btn btn-link text-white p-0 custom-control-btn">
+												<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-fullscreen full-icon" viewBox="0 0 16 16">
+													<path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"/>
+												</svg>
+												<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-fullscreen-exit exit-full-icon d-none" viewBox="0 0 16 16">
+													<path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z"/>
+												</svg>
+											</button>
+										</div>
+									</div>
+									<br>
+								</div>
 							</div>
 						</div>
+
 					</div>
 
 					
@@ -321,69 +428,150 @@
 					
 
 				</div>
-			</div>
+			</div> <br><br>
 
 			<!-- UI / UX -->
 			<div class="container mt-4 mt-">
-				<!-- Text + Carusel -->
-				<div class="row align-items-start roboto-font">
 
-					<!-- Carousel / Video -->
-					<div class="col-md-8 text-center">
+				<!-- Main Title -->
+				<h2 class="agency-bold-font mb-4">UI / UX</h2>
 
-						<div id="introCarousel"
-							class="carousel slide"
-							style="height: 350px;"
-							data-bs-ride="carousel"
-							data-bs-interval="6000">
+				<p>
+					Since the game followed a lo-fi PSX-inspired art style, 
+					we used a shader that pixelated and lowered the visual fidelity of everything rendered in world space. 
+					<br>However, screen-space UI elements were not affected by the shader, 
+					which created a visual mismatch between the UI and the game world. 
+					<br>I was responsible for the game's UI/UX design
+					and proposed two approaches for integrating all menus and solving these two problems.
+				</p> <br><br>
 
-							<div class="carousel-inner h-100">
+				
+				<div>
 
-								<!-- Picture 1 -->
-								<div class="carousel-item active h-100"
-										data-bs-interval="18000">
-									<div class="d-flex justify-content-center align-items-center h-100">
-										<img src="/assets/images/shipLooping.gif" 
-											alt="illustration of the Ship" 
-											title="illustration of the Ship" 
-											width="440"
-											height="365" 
-											loading="lazy">
+					<!-- Diegetic UI -->
+					<div class="row align-items-stretch roboto-font">
+						<!-- Carousel / Video -->
+						<div class="col-12 col-md-8 text-center ">
+							<div id="introCarousel"
+								class="carousel slide w-100"
+								style="height: 500px;"
+								data-bs-ride="carousel"
+								data-bs-interval="6000">
+	
+								<div class="carousel-inner h-100">
+	
+									<!-- Picture 1 -->
+									<div class="carousel-item  h-100"
+										 data-bs-interval="10000">
+										<div class="d-flex justify-content-center align-items-center h-100">
+											<img src="/assets/images/Prysn/Picture-Map1.1.gif" 
+												alt="illustration of the Ship" 
+												title="illustration of the Ship"
+												width="500"
+												height="462"
+												class="mw-75 mh-75"
+												loading="lazy">
+										</div>
+									</div>
+									<!-- Picture 2 -->
+									<div class="carousel-item  active h-100"
+										data-bs-interval="10000">
+										<div class="d-flex justify-content-center align-items-center h-100">
+											<img src="/assets/images/Prysn/Notebook UI Test.gif"
+												alt="Illustration of the the notebook composition"
+												title="UI used"
+												loading="lazy">
+										</div>
 									</div>
 								</div>
-								<!-- Picture 2 -->
 							</div>
+						</div>
+	
+						<!-- Text -->
+						<div class="col-12 col-md-4 text-start">
+	
+							<!-- Diegetic UI -->						
+							<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
+								<h2 class="agency-bold-font"> Diegetic UI </h2></div>
+							<p>
+								I suggested moving some menus from screen space onto world space as diegetic objects.
+								This allowed them to be rendered through the same shader as the rest of the environment, 
+								making them feel organic with the game graphic design.
+								<br>
+								For example the notebook menu which displays photographs taken by the player's camera. 
+								Turning this into a physical world space object also solved another graphic issue: 
+								the pictures themselves were not affected by the shader upon being rendered, 
+								and it would show when displayed as conventional screen-space UI. 
+								<br>Displaying them directly in screen space would have made the photographs appear as 
+								high-resolution screenshots of the game world unlike how the player would otherwise see the world as.
+								While displaying the photographs as textures on an in-world notebook, 
+								they were rendered correctly through the same shader as the surrounding environment, 
+								preserving the intended visual style.
+								<br> The gif shows the illustration made during development to represent the rest of the team,
+								which was then followed in the final game.
+							</p>
+	
+							<br><br>
+	
 						</div>
 					</div>
 
-					<!-- Text -->
-					<div class="col-md-4 text-start">
+					<!-- Screen UI -->
+					<div class="row roboto-font">
+						<!-- Text -->
+						<div class="col-12 col-md-4 text-start">
+	
+							<!-- Screen UI -->						
+							<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
+								<h2 class="agency-bold-font"> Screen-Space UI </h2></div>
+							<p>
+								For the menus that needed to remain in screen space, I developed a different solution. 
+								<br><br>I modeled and imported various rounded blocks with generic materials used in game, 
+								then rendered them through the game's shader using an orthographic camera. 
+								<br>I captured these renders as sprites, edited them to fit the UI, 
+								and used them as the visual basis for the interface buttons.
+								<br>This allowed the screen-space UI to retain the same pixelated, 
+								low-fidelity appearance as the world, 
+								while still benefiting from the flexibility and usability of a conventional screen-space interface.
+								<br><br>These pictures show some examples of this technique being used in game and in development environment.
+							</p>
+							<br><br>
+						</div>
+	
+						<!-- Carousel / Video -->
+						<div class="col-12 col-md-8 text-center ">
+							<div id="introCarousel"
+								class="carousel slide w-100"
+								style="height: 700px;"
+								data-bs-ride="carousel"
+								data-bs-interval="6000">
 
-						<!-- Title -->
-						<h1 class="agency-bold-font mb-4">UI / UX</h1>
-
-						<!-- Sub title -->
-						<h3 class="agency-font">aka <em>Empty</em></h3>
-						<br>
-						
-						<!-- Project Goal -->						
-						<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
-							<h2 class="agency-bold-font"> Project Goal </h2></div>
-						<p>
-							It's Empty Dumpty.
-						</p>
-						<br><br>
-
+								<div class="carousel-inner h-100">
+									<!-- Picture 1 -->
+									<div class="carousel-item active h-100"
+										 data-bs-interval="15000">
+										<div class="d-flex justify-content-center align-items-center h-100">
+											<img src="/assets/images/Prysn/tr3.png"
+												alt="Example of the UI used"
+												title="Example of the UI used"
+												class="img-fluid"
+												loading="lazy">
+										</div>
+									</div>
+									<!-- Picture 2 -->
+									<div class="carousel-item h-100"
+										data-bs-interval="15000">
+										<div class="d-flex justify-content-start align-items-center h-100">
+											<img src="/assets/images/Prysn/main_Menu.jpg"
+												alt="Illustration of the the notebook composition"
+												title="UI used"
+												loading="lazy">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-
-
-					
-
-					
-
-					
-
-
 				</div>
 			</div>
 
@@ -420,5 +608,6 @@
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/assets/js/fetch_projects.js"></script>
+	<script src="/assets/js/mixer_logic.js"></script>
 </body>
 </html>
