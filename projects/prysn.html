@@ -213,9 +213,7 @@
 								allowfullscreen>
 							</iframe>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 		</section> 
@@ -241,18 +239,14 @@
 							I was mainly the Sound designer of the team. <br>
 							I coordinated with art team to keep the sonic mood cohesive to the original vision, 
 							and with the programming team to implement souds correctly and interactively.
-	
-							
-							<!-- Pics: 
-								 UI notebook gif
-								Menu ui pallet
-							-->
-							<br><br>
+							<br>
 							I was also responsable for the game UI, design of all 
 							<span class="text-nowrap">in-game</span> menus and implementation of the 
 							<span class="text-nowrap">non-diegetic</span> ones.
-							<br><br>
-							In this project I learned to better balance being proactive with respecting the responsibilities of others. 
+							<br>Alongside making some extra marketing/presentation material such as creating graphics for the game various webpages.
+							<br>
+							<h4 class="agency-font">Reflection on teamwork</h4>
+							In this project I learned to better balance being proactive while respecting the responsibilities of others. 
 							At the beginning, I sometimes went ahead of my tasks when I felt something could be improved. 
 							<br> Over time, I learned to give my suggestions without always expecting them to be followed, and to accept decisions even when I disagreed with them. 
 							This helped me become more comfortable with collaboration and knowing when to step back.
@@ -270,20 +264,26 @@
 
 					<!-- Text -->
 					<div class="col-md-4 text-start">
-
-						<!-- Title -->
-						<h2 class="agency-bold-font mb-4">Sound Design & Implementation</h2>
-
-						<!-- Sub title -->
-						<h3 class="agency-font">aka <em>Empty</em></h3>
-						<br>
-						
-						<!-- Project Goal -->						
-						<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
-							<h2 class="agency-bold-font"> Project Goal </h2></div>
+						<h2 class="agency-bold-font"> Sound Design & Implementation </h2>
 						<p>
-							It's Empty Dumpty.
+							I was responsable for all sounds in game, excluding the music.
+							<br>All the sound effects in this game were designed starting from 
+							<span class="text-nowrap">royalty-free</span> samples, and my own recordings.
+							<br>Some of the monstery sounds, for examplse, were created from my own voice acting :D
+							<br>The sounds were edited and processed in Reaper, 
+							then implemented in gameplay using Unreal Engine native audio system, including MetaSounds, 
+							with the help of the programmers on my team.
+
+							<br><br>	
+							Given the Lo-fi aesthetic of the game, many sounds were deliberatly processed 
+							with a lower <span class="text-nowrap">sample-rate</span> and a subtle <span class="text-nowrap">low-pass</span> filter
+							to complement the visual style and create a congruent sonic mood.
+							
 						</p>
+						<!--p>
+							Example of the general MetaSound setup used for 
+							<span class="text-nowrap">single-use</span>sounds in game.
+						</p -->
 						<br><br>		
 
 					</div>
@@ -300,124 +300,24 @@
 							background-position: center center;">
 
 							<!-- Title -->
-							<h2 class="agency-bold-font">Sample of in game SFX</h2>
+							<h2 class="agency-bold-font">Gampleplay Clip</h2>
 							<p>
-								This is one example of sounds made for in the game. For 
+								This is a short clip showcasing how the game sounds, with lowered music.
+								<br>To see or hear more I suggest you to downaload and play the game yourself! (link above) 
 							</p>
 							
 							<div class="row g-4 sound-design-breakdown align-items-center">
-								<div class="col-md-4 text-start">
-									<div class="row align-items-center mb-3">
-										<div class="col-4 col-md-3">
-											<h5 class="agency-font m-0 text-nowrap">Volume</h5>
-										</div>
-										<div class="col-2 col-md-1 text-center">
-											<button class="btn btn-link text-light p-0" id="volume-master-btn" aria-label="Mute">
-												<!-- Volume ON Icon -->
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
-													<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
-													<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
-													<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
-												</svg>
-												<!-- Volume OFF Icon (Hidden by default) -->
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
-													<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
-												</svg>
-											</button>
-										</div>
-										<div class="col-6 col-md-8">
-											<input type="range" class="custom-slider" id="volume-master" min="0" max="1" step="0.01" value="0.5">
-										</div>
-									</div>
-									
-									<hr class="border-secondary">
-
-									<!-- Hidden Audio Sources -->
-									<audio id="audioRoar" class="mixer-track" src="/assets/sounds/slitherfang_layer-001_roar.mp3"></audio>
-									
-									<!-- Mixer Tracks UI -->
-									<div class="container-fluid px-0">
-										
-										<!-- Roar Track -->
-										<div class="row align-items-center mb-3">
-											<div class="col-4 col-md-3">
-												<h3 class="agency-font m-0 text-nowrap">Roar</h3>
-											</div>
-											<div class="col-2 col-md-1 text-center">
-												<button class="btn btn-link text-light p-0 mute-btn" data-target="audioRoar" aria-label="Mute">
-													<!-- Volume ON Icon -->
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill vol-icon-on" viewBox="0 0 16 16">
-														<path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
-														<path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
-														<path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
-													</svg>
-													<!-- Volume OFF Icon (Hidden by default) -->
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute-fill vol-icon-off d-none" viewBox="0 0 16 16">
-														<path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
-													</svg>
-												</button>
-											</div>
-											<div class="col-6 col-md-8">
-												<input type="range" class="custom-slider volume-slider" data-target="audioRoar" min="0" max="1" step="0.01" value="0.5">
-											</div>
-										</div>
-									</div>
+								<div class="ratio ratio-16x9 mx-auto" style="width: 60%">
+									<iframe 
+										width="60" 
+										src="https://www.youtube.com/embed/XdYBBDL2agE?si=L77v-H1sHkTovXWS" 
+										title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+										clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+										referrerpolicy="strict-origin-when-cross-origin" 
+										allowfullscreen>
+									</iframe>
 								</div>
 
-								<div class="col-md-6 position-relative video-container p-0 text-center ms-md-4">
-									<div class="ratio ratio-16x9 bg-dark">
-										<video id="masterVideo" class="object-fit-cover cursor-pointer" playsinline muted>
-											<source src="/assets/videos/slitherfang_video.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-										</video>
-									</div>
-
-									<div id="centerPlayPause" class="position-absolute top-50 start-50 translate-middle" style="z-index: 20; pointer-events: none;">
-										<div class="bg-dark bg-opacity-50 rounded-circle d-flex justify-content-center align-items-center" style="width: 70px; height: 70px;">
-											<svg class="bi bi-play-fill play-icon text-white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
-												<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
-											</svg>
-											<svg class="bi bi-pause-fill pause-icon d-none text-white" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
-												<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
-											</svg>
-										</div>
-									</div>
-
-									<!-- Custom Video Controls Overlay -->
-									<div class="video-controls-overlay position-absolute bottom-0 start-0 w-100 p-2 pt-4">
-										
-										<!-- Timeline Slider -->
-										<input type="range" id="videoTimeline" class="custom-slider w-100 mb-2" min="0" max="100" step="0.1" value="0">
-										
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="d-flex align-items-center gap-3">
-												<!-- Play/Pause Button -->
-												<button id="masterPlayBtn" class="btn btn-link text-white p-0 custom-control-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-play-fill play-icon" viewBox="0 0 16 16">
-														<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
-													</svg>
-													<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-pause-fill pause-icon d-none" viewBox="0 0 16 16">
-														<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
-													</svg>
-												</button>
-
-												<!-- Timestamp -->
-												<span id="timeDisplay" class="text-white small roboto-font">0:00 / 0:00</span>
-											</div>
-
-											<!-- Fullscreen Button -->
-											<button id="fullscreenBtn" class="btn btn-link text-white p-0 custom-control-btn">
-												<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-fullscreen full-icon" viewBox="0 0 16 16">
-													<path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"/>
-												</svg>
-												<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-fullscreen-exit exit-full-icon d-none" viewBox="0 0 16 16">
-													<path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z"/>
-												</svg>
-											</button>
-										</div>
-									</div>
-									<br>
-								</div>
 							</div>
 						</div>
 
@@ -578,7 +478,7 @@
 			<!-- More Projects -->
 			<section id="MoreProjects" class="container mt-5">
 				<h2 class="agency-bold-font">More Projects</h2>
-				<div class="container mt-3" id="projectsContainer" data-projects-id="Cosaccodrago,Slitherfang,Prysn">
+				<div class="container mt-3" id="projectsContainer" data-projects-id="Cosaccodrago,Slitherfang,Greymatter">
 					<div class="row g-4">
 						<!-- Project cards will be dynamically inserted here -->
 					</div>

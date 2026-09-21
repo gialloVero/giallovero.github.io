@@ -66,13 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function unmuteMaster(trackUnmuted) {
-		if (masterMuted) {
-			masterMuted = false;
-			volumeMaster.value = previousMasterVolume || 1;
-			masterVolume = Number(volumeMaster.value);
-			updateMuteUI(volumeMasterBtn, masterMuted);
-			updateSliderBackground(volumeMaster);
-		}
+		masterMuted = false;
+		volumeMaster.value = previousMasterVolume || 1;
+		masterVolume = Number(volumeMaster.value);
 
 		audioTracks.forEach(track => {
 			if (track !== trackUnmuted) {
@@ -80,13 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
 				track.volume = 0;
 			}
 		});
+
+		updateMuteUI(volumeMasterBtn, masterMuted);
+		updateSliderBackground(volumeMaster);
 	}
 
 	// --- Audio Controls ---
 	// --- 1. Master Volume Control ---
 	updateSliderBackground(volumeMaster);
 
-	volumeMaster.addEventListener('mousedown', () => {
+	volumeMaster.addEventListener('pointerdown', () => {
 		if (masterVolume > 0) {
 			previousMasterVolume = masterVolume;
 		}
@@ -130,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		updateSliderBackground(slider);
 
-		slider.addEventListener('mouseup', () => {
+		slider.addEventListener('pointerup', () => {
 			const newVolume = Number(slider.value);
 
 			if (track && newVolume > 0) {
@@ -143,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				const newVolume = Number(e.target.value);
 
 				if (newVolume > 0 && masterMuted) {
-					unmuteMaster(e.target);
+					unmuteMaster(track);
 				}
 				
 				track.volume = newVolume * masterVolume;
@@ -166,17 +165,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			
 			if (track) {
 				track.muted = track.volume !== 0;
-				updateMuteUI(btnElement, track.muted);
-
+				
+				if (!track.muted && masterMuted) {
+				  unmuteMaster(track);
+				}
+			  
 				if (track.muted) {
 					track.volume = 0;
 				} else {
 					track.volume = Number(track.dataset.trackVolume) * masterVolume;
-					unmuteMaster(track);
 				}
 
 				const slider = document.querySelector(`.volume-slider[data-target="${track.id}"]`);
-
 				if (slider) {
 					if (track.muted) {
 						slider.value = 0;
@@ -185,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					}
 					updateSliderBackground(slider);
 				}
+				updateMuteUI(btnElement, track.muted);
 			}
 		});
 	});
@@ -272,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// --- 8. Timeline Dragging Control ---
-	videoTimeline.addEventListener('mousedown', () => {
+	videoTimeline.addEventListener('pointerdown', () => {
 		videoTimeline.dataset.isDragging = 'true';
 		wasPlayingBeforeDrag = isPlaying;
 
@@ -282,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	videoTimeline.addEventListener('mouseup', () => {
+	videoTimeline.addEventListener('pointerup', () => {
 		videoTimeline.dataset.isDragging = '';
 		
 		audioTracks.forEach(track => {
