@@ -10,6 +10,7 @@
 	<link rel="icon" href="/assets/images/Gi_Logo_Purple.png" type="image/x-icon">
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
 </head>
 
 <body data-bs-theme="dark" class="d-flex flex-column min-vh-100">
@@ -218,7 +219,7 @@
 				<div class="col-md-6 text-start">
 					<p>
 						I joined the company as an intern during the Spring 2025 semester. <br> 
-						In my intership, I embraced a generalist butterfly role, working across various fields and task, 
+						In my intership, I embraced a <em class="text-nowrap" >generalist butterfly role</em>, working across various fields and task, 
 						both trying to learn as much as possible, and to give back to the project my own contribution.
 						<br><br><br><br>
 
@@ -238,12 +239,27 @@
 						<!-- Title -->
 						<h1 class="agency-bold-font mb-4">UI / UX</h1>
 						<p>
-							The UI was done with these criteria
+							Th general mood of the game was <span class="text-nowrap" >retro-futuristic</span>, 
+							as such the UI was immagined to be inspired to analogic interfaces, minimal, industrial,
+							and fitting for a <span class="text-nowrap" >sci-fi datacenter</span>.
 							<br><br>
-							realized on this Affine / Penpot
+							One of the compnay's objective was accomodate as many user preference as possible, 
+							from different screen sizes and input devices to extra modded features.
+							For this reason, all menus were designed to be indefinitely expandable, 
+							allowing new options and features to be added without requiring a complete redesign of the interface. 
 							<br><br>
-							At this point in development the game was far from being able to implement any of the UI,
-							so my task was to design a prototype and document it clearly so that future developers could implement it eventually.
+							Since the company is a strong supporter of open-source software, 
+							both the UI and UX work were created using <u>Penpot</u> and <u>Affine</u> , 
+							keeping the design process aligned with the project's open-source philosophy.
+							Affine was used as moodboard platform to gather and share reference images and concepts similar to how Miro is used, 
+							while Penpot was used to create interactive prototypes of UI interactions simillar to Canvas.
+							<br><br>
+							At this point in development the game was far from being able to implement any of the UI directly.
+							Therefore my task was to design an eligible prototype and document them clearly, 
+							so that future developers could implement them eventually.
+							<br><br>
+							As such, the images here represent some of the UI prototypes I created, 
+							along with explanatory illustrations detailing features and the reasoning behind some of the design decisions.
 						</p>
 						<br><br>
 
@@ -251,8 +267,71 @@
 
 					<!-- Carousel / Video -->
 					<div class="col-12 col-md-8 text-center ">
+						<div id="TasksUICarousel"
+							class="carousel slide carousel-fade w-100"
+							data-bs-ride="carousel"
+							data-bs-interval="6000">
+	
+							<div class="carousel-inner h-100">
+								<!-- Picture 1 -->
+								<div class="carousel-item active h-100"
+										data-bs-interval="4000">
+									<div class="d-flex justify-content-center align-items-center h-100">
+										<img src="/assets/images/GMG/UI 2(0).png"
+											alt="Task UI -1"
+											title="Task UI -1"
+											class="img-fluid"
+											loading="lazy">
+									</div>
+								</div>
+								<!-- Picture 2 -->
+								<div class="carousel-item h-100"
+									data-bs-interval="4000">
+									<div class="d-flex justify-content-start align-items-center h-100">
+										<img src="/assets/images/GMG/UI 2(1).png"
+											alt="Task UI -2"
+											title="Task UI -2"
+											class="img-fluid"
+											loading="lazy">
+									</div>
+								</div>
+	
+								<!-- Picture 3 -->
+								<div class="carousel-item h-100"
+									data-bs-interval="4000">
+									<div class="d-flex justify-content-start align-items-center h-100">
+										<img src="/assets/images/GMG/UI 2(2).png"
+											alt="Task UI -3"
+											title="Task UI -3"
+											class="img-fluid"
+											loading="lazy">
+									</div>
+								</div>
+								<!-- Picture 4 -->
+								<div class="carousel-item h-100"
+									data-bs-interval="4000">
+									<div class="d-flex justify-content-start align-items-center h-100">
+										<img src="/assets/images/GMG/UI 2(3).png"
+											alt="Task UI -4"
+											title="Task UI -4"
+											class="img-fluid"
+											loading="lazy">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<img src="/assets/images/GMG/UI 2 info.png"
+						alt="Task UI -1"
+						title="Task UI -1"
+						class="img-fluid mt-3"
+						width="800"
+						loading="lazy">
+					</div>
+
+					<div class="col-12 col-md-10 text-center ">
 						<div id="introCarousel"
-							class="carousel slide w-100"
+							class="carousel slide carousel-fade w-100"
 							style="height: 700px;"
 							data-bs-ride="carousel"
 							data-bs-interval="6000">
@@ -260,7 +339,7 @@
 							<div class="carousel-inner h-100">
 								<!-- Picture 1 -->
 								<div class="carousel-item active h-100"
-										data-bs-interval="10000">
+										data-bs-interval="8000">
 									<div class="d-flex justify-content-center align-items-center h-100">
 										<img src="/assets/images/GMG/UI_1.png"
 											alt="Shop UI -1"
@@ -271,7 +350,7 @@
 								</div>
 								<!-- Picture 2 -->
 								<div class="carousel-item h-100"
-									data-bs-interval="10000">
+									data-bs-interval="8000">
 									<div class="d-flex justify-content-start align-items-center h-100">
 										<img src="/assets/images/GMG/UI_2.png"
 											alt="Shop UI -2"
@@ -283,7 +362,7 @@
 
 								<!-- Picture 3 -->
 								<div class="carousel-item h-100"
-									data-bs-interval="10000">
+									data-bs-interval="8000">
 									<div class="d-flex justify-content-start align-items-center h-100">
 										<img src="/assets/images/GMG/UI_3.png"
 											alt="Shop UI -3"
@@ -296,65 +375,458 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> <br><br><br>
 
 			<!-- Engine Development -->
-			<div class="container mt-4 mt-">
+			<div class="container mt-4 mt-" id="EngineDevelopment">
 				<!-- Text + Carusel -->
 				<div class="row align-items-start roboto-font">
 
-					<!-- Carousel / Video -->
-					<div class="col-md-8 text-center">
-
-						<div id="introCarousel"
-							class="carousel slide"
-							style="height: 350px;"
-							data-bs-ride="carousel"
-							data-bs-interval="6000">
-
-							<div class="carousel-inner h-100">
-
-								<!-- Picture 1 -->
-								<div class="carousel-item active h-100"
-										data-bs-interval="18000">
-									<div class="d-flex justify-content-center align-items-center h-100">
-										<img src="/assets/images/shipLooping.gif" 
-											alt="illustration of the Ship" 
-											title="illustration of the Ship" 
-											width="440"
-											height="365" 
-											loading="lazy">
-									</div>
-								</div>
-								<!-- Picture 2 -->
-							</div>
-						</div>
-					</div>
-
 					<!-- Text -->
-					<div class="col-md-4 text-start">
+					<div class="col-md-4 text-start order-1 order-md-2">
 
 						<!-- Title -->
 						<h1 class="agency-bold-font mb-4">Engine Development</h1>
 						
 						<p>
 							This was my first time studying and operating using the Rust programming language and also Bevy,
-							the open source engine based on Rust that Computronium is based on.
-							<br>With help from the development team, I implemented some reusable general systems,
-							and some more direct features. 
-							<br>All the commits were implemented following the design pillar of the game of <span class="text-nowrap" >multiplayer-first</span> approach, 
-							which meant that everything was tested operating from multiple users prospective to work correctly on clients and servers.
-							<!-- span><br>The other pillar being <em>full mod support</em> being</span -->
+							the open source engine built in Rust that Computronium is based on. 
+							This alone was a notable challenge, as Rust resulted a much more complex programming language than than those I had worked with previously. 
+							<br>Meanwhile Bevy itself resulted pretty straightforward to learn and use, as far as a viewport-less engine can be.
+							<br>With help from the development team, I implemented several reusable, general purpose systems, 
+							as well as more direct gameplay features.
+							<br>All the contributions followed one of the game's core design pillars: <span class="text-nowrap" >multiplayer-first</span> approach. 
+							This meant testing features from the perspective of multiple users to ensure that they worked correctly on both clients and servers.
+							<br>Another core pillar was <span class="text-nowrap" >full mod support</span> 
+							therefore all features implemented in game were designed with extensibility in mind,
+							allowing additional functionality to be added through mods without requiring the original systems to be rewritten.
+							<br>I also implemented the first sounds in the game, 
+							starting from SFX I created specifically for the project and from music produced by the company's composer. 
+							These sounds were implemented using Bevy's native audio system.
+							<br>
+							Other smaller features were added to the engine, such as a location ping system to communicate between players, 
+							as well as a debug mode for visualizing the locations of spawned sounds, which was used to test sound spatialization.
 						</p>
-						<br><br>
-
 					</div>
 
+					<!-- Code -->
+					<div class="col-md-8 mb-4 order-2 order-md-1">
+
+						<!-- Code -->
+						<div class="text-light p-4 rounded-3" >
+							<h3 class="mb-0 font-monospace">Sound System Implementation</h3>
+							<p>
+								Here is shown the full sound class I created and used during my internship, 
+								<br>used for all the sounds and with the implemented features 
+							</p>
+							<div class="mt-3" id="soundCode">
+								<pre class="mb-0 font-monospace" style="max-height: 700px; overflow: auto;">
+									<code class="language-rust">
+use crate::prelude::*;
+
+#[cfg(feature = "client")]
+pub(super) mod client_only {
+    use bevy::audio::SpatialScale;
+    use bevy_tnua::prelude::*;
+    use bevy_tnua::builtins::TnuaBuiltinJumpState;
+    use rand::prelude::*;
+    use bevy::color::palettes::basic;
+
+    use super::*;
+
+    const SPATIAL_SCALE_VALUE : f32 = 0.05;
+    const SPATIAL_SCALE : SpatialScale = SpatialScale::new(SPATIAL_SCALE_VALUE);
+
+    pub fn plugin(app: &mut App) {
+        app.add_systems(FixedUpdate, player_jump_observer);
+
+        app.add_observer(spawn_foundation_observer);
+        app.add_observer(spawn_ambience_observer);
+        app.add_observer(spawn_chassis_observer);
+        app.add_observer(spawn_wall_observer);
+        app.add_observer(spawn_ping_observer);
+        app.add_observer(spawn_server_observer);
+        app.add_observer(spawn_music_observer);
+        app.add_observer(sound_setup);
+    }
+
+    fn make_sound_gizmo() -> GizmoAsset {
+        let mut gizmo = GizmoAsset::default();
+        gizmo
+            .sphere(Isometry3d::default(), 1., basic::YELLOW)
+            .resolution(4);
+
+        gizmo
+    }
+
+    fn sound_setup(
+        trigger: Trigger<OnAdd, ThirdPersonCameraComponent>,
+        asset_server: Res<AssetServer>,
+        mut commands:Commands,
+
+    ) {
+        //space between two ears
+        let gap = -5.0;
+        let listener = SpatialListener::new(gap);
+        let parent_entity = trigger.target();
+        let listener_entity = commands.spawn((
+        Transform::default(),
+        listener,
+        )).id();
+
+        commands.entity(parent_entity).add_child(listener_entity);
+    }
+
+    //TODO: (Giorgio) use something better than the camera component
+    fn spawn_ambience_observer(
+        trigger: Trigger<OnAdd, ThirdPersonCameraComponent>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+    ) {
+        let sound_effect: Handle<AudioSource> = asset_server.load("audio/sfx/WindLooping.ogg");
+        commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::LOOP,));
+    }
+
+    fn spawn_wall_observer(
+        trigger: Trigger<OnAdd, WallComponent>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        //Play a randomly selected sound
+        let rng = &mut rand::rng();
+        let sound_paths = [
+            "audio/sfx/Crush5.ogg",
+            "audio/sfx/Build1.ogg",
+            "audio/sfx/Build2.ogg",
+        ];
+        let Some(path) = sound_paths.choose(rng) else {
+            fail!("Unable to load sound file from list");
+            return;
+        };
+        let sound_effect: Handle<AudioSource> = asset_server.load(*path);
+        let parent_entity = trigger.target();
+
+        //spawn sound
+        let mut sound = commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SPATIAL_SCALE),
+            ChildOf(parent_entity),
+            Transform::default(),
+        ));
+
+        if toggles.sound_gizmo
+        {
+            let gizmo = make_sound_gizmo();
+            sound.insert(
+                children![(
+                    Gizmo {
+                        handle: gizmo_assets.add(gizmo),
+                        ..default()
+                    },
+                )],
+            );
+        }
+    }
+
+    fn spawn_server_observer(
+        trigger: Trigger<OnAdd, PlacementComponent>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        let sound_effect: Handle<AudioSource> = asset_server.load("audio/sfx/Wood1.ogg");
+        let parent_entity = trigger.target();
+
+        //spawn sound
+        let mut sound = commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SPATIAL_SCALE),
+            ChildOf(parent_entity),
+            Transform::default(),
+        ));
+        if toggles.sound_gizmo
+        {
+            let gizmo = make_sound_gizmo();
+            sound.insert(
+                children![(
+                    Gizmo {
+                        handle: gizmo_assets.add(gizmo),
+                        ..default()
+                    },
+                )],
+            );
+        }
+    }
+
+    //TODO: (Giorgio) use something better than the camera component
+    fn spawn_music_observer(
+        trigger: Trigger<OnAdd, ThirdPersonCameraComponent>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+    ) {
+        let sound_effect: Handle<AudioSource> = asset_server.load("audio/sfx/Music/Frontier 1 v_1A OGG.ogg");
+        commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::LOOP,));
+    }
+
+    fn spawn_foundation_observer(
+        trigger: Trigger<OnAdd, FoundationComponent>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        //Play a randomly selected sound
+        let rng = &mut rand::rng();
+        let sound_paths = [
+            "audio/sfx/Crush5.ogg",
+            "audio/sfx/Build1.ogg",
+            "audio/sfx/Build2.ogg",
+        ];
+        let Some(path) = sound_paths.choose(rng) else {
+            fail!("Unable to load sound file from list");
+            return;
+        };
+        let sound_effect: Handle<AudioSource> = asset_server.load(*path);
+        let parent_entity = trigger.target();
+
+        //spawn sound
+        let mut sound= commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SPATIAL_SCALE),
+            ChildOf(parent_entity),
+            Transform::default(),
+            ));
+        if toggles.sound_gizmo
+        {
+            let gizmo = make_sound_gizmo();
+            sound.insert(
+                children![(
+                    Gizmo {
+                        handle: gizmo_assets.add(gizmo),
+                        ..default()
+                    },
+                )],
+            );
+        }
+    }
+
+    fn spawn_chassis_observer(
+        trigger: Trigger<OnAdd, ServerComponent>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        let sound_effect: Handle<AudioSource> = asset_server.load("audio/sfx/Slide3.ogg");
+        let parent_entity = trigger.target();
+
+        //spawn sound
+        let mut sound = commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SPATIAL_SCALE),
+            ChildOf(parent_entity),
+            Transform::default(),
+            ));
+        if toggles.sound_gizmo
+        {
+            let gizmo = make_sound_gizmo();
+            sound.insert(
+                children![(
+                    Gizmo {
+                        handle: gizmo_assets.add(gizmo),
+                        ..default()
+                    },
+                )],
+            );
+        }
+    }
+
+    fn spawn_ping_observer(
+        trigger: Trigger<OnAdd, PingComponent>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        let sound_effect: Handle<AudioSource> = asset_server.load("audio/sfx/Pew1.ogg");
+        let parent_entity = trigger.target();
+
+        //spawn sound
+        let mut sound = commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SpatialScale::new(SPATIAL_SCALE_VALUE/3.0)),
+            ChildOf(parent_entity),
+            Transform::default(),
+            ));
+        if toggles.sound_gizmo
+        {
+            let gizmo = make_sound_gizmo();
+            sound.insert(
+                children![(
+                    Gizmo {
+                        handle: gizmo_assets.add(gizmo),
+                        ..default()
+                    },
+                )],
+            );
+        }
+    }
+
+    fn spawn_connection_observer(
+        //TODO: (Giorgio) connect this sound when the connection logic is implemented in the gameplay
+        //trigger:Trigger<INSERT EVENT HERE>,
+        mut commands: Commands,
+        asset_server:Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        let sound_effect:Handle<AudioSource> = asset_server.load("audio/sfx/PlugIn1.ogg");
+        //let parent_entity = trigger.target();
+
+        //spawn sound
+        let mut sound = commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SPATIAL_SCALE),
+            //ChildOf(parent_entity),
+            Transform::default(),
+            ));
+        if toggles.sound_gizmo
+        {
+            let gizmo = make_sound_gizmo();
+            sound.insert(
+                children![(
+                    Gizmo {
+                        handle: gizmo_assets.add(gizmo),
+                        ..default()
+                    },
+                )],
+            );
+        }
+    }
+
+    fn despawn_connection_observer(
+        //TODO: (Giorgio) connect this sound when the connection logic is implemented in the gameplay
+        //trigger:Trigger<INSERT EVENT HERE>,
+        mut commands: Commands,
+        asset_server:Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        let sound_effect:Handle<AudioSource> = asset_server.load("audio/sfx/PlugOut1.ogg");
+        //let parent_entity = trigger.target();
+
+        //spawn sound
+        let mut sound = commands.spawn((
+            AudioPlayer(sound_effect),
+            PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SPATIAL_SCALE),
+            //ChildOf(parent_entity),
+            Transform::default(),
+            ));
+        if toggles.sound_gizmo
+        {
+            let gizmo = make_sound_gizmo();
+            sound.insert(
+                children![(
+                    Gizmo {
+                        handle: gizmo_assets.add(gizmo),
+                        ..default()
+                    },
+                )],
+            );
+        }
+    }
+
+    fn player_jump_observer(
+        controller_query: Query<(Entity, &TnuaController)>,
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+        mut gizmo_assets: ResMut<Assets<GizmoAsset>>,
+        toggles: Res<DebugTogglesResource>,
+    ) {
+        for (parent_entity, controller) in controller_query.iter() {
+            if let Some(TnuaBuiltinJump::NAME) = controller.action_name() {
+                let (_, jump_state) = controller
+                    .concrete_action::<TnuaBuiltinJump>()
+                    .expect("action name mismatch");
+
+                if let TnuaBuiltinJumpState::StartingJump {..} = jump_state {
+                    //Play a randomly selected sound
+                    let rng = &mut rand::rng();
+                    let sound_paths = [
+                        "audio/sfx/Crush3.ogg",
+                    ];
+
+                    let Some(path) = sound_paths.choose(rng) else {
+                        fail!("Unable to load sound file from list");
+                        continue;
+                    };
+
+                    let sound_effect: Handle<AudioSource> = asset_server.load(*path);
+
+                    //spawn sound
+                    let mut sound = commands.spawn((
+                        AudioPlayer(sound_effect),
+                        PlaybackSettings::DESPAWN.with_spatial(true).with_spatial_scale(SPATIAL_SCALE),
+                        Transform::default(),
+                        ChildOf(parent_entity),
+                        ));
+                    if toggles.sound_gizmo
+                    {
+                        let gizmo = make_sound_gizmo();
+                        sound.insert(
+                            children![(
+                                Gizmo {
+                                    handle: gizmo_assets.add(gizmo),
+                                    ..default()
+                                },
+                            )],
+                        );
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+									</code>
+								</pre>
+							</div>
+						</div>
+
+						
+					</div>
+						
+					<!-- Atmospherics text -->
+					 <div class="col-md-4 text-start order-3 order-md-4">
 					
+						<p>
+							At the end of my internship, the last thing I did was implementing Bevy's athmospherics, 
+							who, at the time, were just added in the newer bevy release version 1.16.
+						</p>
+					 </div>
 
-
+					 <!-- Miro -->
+					<div class="col-md-8 order-4 order-md-3">
+						<iframe 
+							src="https://miro.com/app/live-embed/uXjVIPygLGU=/?embedMode=view_only_without_ui&moveToViewport=-5795%2C-2428%2C3844%2C1901&embedId=147764915235"
+							frameborder="0" 
+							scrolling="no"
+							allow="clipboard-read;
+							clipboard-write"
+							style="width: 100%; height: 400px; border: none; border-radius: 4px; overflow: hidden;"
+							allowfullscreen>
+						</iframe>
+					</div>
 				</div>
-			</div>
+			</div> <br><br><br>
 
 			<!-- Sound Design & Implementation -->
 			<div class="container mt-4 mt-">
@@ -362,13 +834,23 @@
 				<div class="row align-items-start roboto-font">
 
 					<!-- Text -->
-					<div class="col-md-4 text-start">
+					<div class="col-md-4 text-start order-1 order-md-1">
 
 						<!-- Title -->
 						<h1 class="agency-bold-font mb-4">Sound Design & Implementation</h1>
-
-						
 						<p>
+							aaaa
+							<br><br>
+							This clip was made near the end of my internship to show some of the work done during it.
+							<br>(More sounds where made that are not all present here)
+							<br>It showcases some of the sounds implemented, as well as the sound implementation features made using the Bevy audio system, 
+							and other general engine features implemented such as the player ping, and a debug visual gizmo for visualizing the location of spawned sounds, 
+							which was created and used when doing the spacialization of all implemented sounds.
+							<br><br>
+							The full source code realised to implement the sound is shown in
+							<a href="#EngineDevelopment">
+								<u class="text-nowrap">Engine Development</u>
+							</a>.
 
 						</p>
 						<br><br>
@@ -376,95 +858,19 @@
 					</div>
 
 					<!-- Carousel / Video -->
-					<div class="col-md-8 text-center">
-
-						<div id="introCarousel"
-							class="carousel slide"
-							style="height: 350px;"
-							data-bs-ride="carousel"
-							data-bs-interval="6000">
-
-							<div class="carousel-inner h-100">
-
-								<!-- Picture 1 -->
-								<div class="carousel-item active h-100"
-										data-bs-interval="18000">
-									<div class="d-flex justify-content-center align-items-center h-100">
-										<img src="/assets/images/shipLooping.gif" 
-											alt="illustration of the Ship" 
-											title="illustration of the Ship" 
-											width="440"
-											height="365" 
-											loading="lazy">
-									</div>
-								</div>
-								<!-- Picture 2 -->
-							</div>
-						</div>
+					<div class="col-md-8 text-center order-2 order-md-2">
+						<iframe 
+							width="560" height="315" src="https://www.youtube.com/embed/zthSyq2d_i8?si=qxIf8bGeGG-fFT7t" 
+							title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+							clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+						</iframe>
 					</div>
 
 				</div>
-			</div>
+			</div> <br>
 
-			<!-- Game Design -->
-			<div class="container mt-4 mt-">
-				<!-- Text + Carusel -->
-				<div class="row align-items-start roboto-font">
-
-					<!-- Carousel / Video -->
-					<div class="col-md-8 text-center">
-
-						<div id="introCarousel"
-							class="carousel slide"
-							style="height: 350px;"
-							data-bs-ride="carousel"
-							data-bs-interval="6000">
-
-							<div class="carousel-inner h-100">
-
-								<!-- Picture 1 -->
-								<div class="carousel-item active h-100"
-										data-bs-interval="18000">
-									<div class="d-flex justify-content-center align-items-center h-100">
-										<img src="/assets/images/shipLooping.gif" 
-											alt="illustration of the Ship" 
-											title="illustration of the Ship" 
-											width="440"
-											height="365" 
-											loading="lazy">
-									</div>
-								</div>
-								<!-- Picture 2 -->
-							</div>
-						</div>
-					</div>
-
-					<!-- Text -->
-					<div class="col-md-4 text-start">
-
-						<!-- Title -->
-						<h1 class="agency-bold-font mb-4">Game Design</h1>
-
-						<!-- Sub title -->
-						<h3 class="agency-font">aka <em>Empty</em></h3>
-						<br>
-						
-						<!-- Project Goal -->						
-						<div class="d-flex flex-wrap gap-3 mb-1 position-relative z-1 align-items-center">
-							<h2 class="agency-bold-font"> Project Goal </h2></div>
-						<p>
-							It's Empty Dumpty.
-						</p>
-						<br><br>
-
-					</div>
-
-					
-
-
-				</div>
-			</div>
-
+			
 			<!-- More Projects -->
 			<section id="MoreProjects" class="container mt-5">
 				<h2 class="agency-bold-font">More Projects</h2>
@@ -497,5 +903,7 @@
 	</footer>
 	<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/assets/js/fetch_projects.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
 </body>
 </html>
