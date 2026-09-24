@@ -413,7 +413,7 @@
 					<div class="col-md-8 mb-4 order-2 order-md-1">
 
 						<!-- Code -->
-						<div class="text-light p-4 rounded-3" >
+						<div class="text-light p-4 rounded-3">
 							<h3 class="mb-0 font-monospace">Sound System Implementation</h3>
 							<p>
 								Here is shown the full sound class I created and used during my internship, 
@@ -810,6 +810,14 @@ pub(super) mod client_only {
 						<p>
 							At the end of my internship, the last thing I did was implementing Bevy's athmospherics, 
 							who, at the time, were just added in the newer bevy release version 1.16.
+							<br>Initially I made this board for myself to test out various settings 
+							and brainstorm which ones could work in an alient planet environment. 
+							Then I decided to make this board accessible as part of the project documentation, 
+							both to show my process and to give the other developers an overview of how I approached this task.
+							<br><br>In retrospect however, this board perhaps aged poorly, 
+							since Bevy's atmospherics have since changed significantly in both functionality and implementation.
+							ecause of this, it is no longer particularly useful as a reference for current versions of Bevy.
+							<br>But I have kept it here as documentation of my experience, experimentation, and approach at the time.
 						</p>
 					 </div>
 
@@ -839,13 +847,17 @@ pub(super) mod client_only {
 						<!-- Title -->
 						<h1 class="agency-bold-font mb-4">Sound Design & Implementation</h1>
 						<p>
-							aaaa
+							During my internship, I worked on both the design and implementation of the game's very first sound effects. 
+							This included creating and editing sound assets using Reaper, implementing them into the game using Bevy's audio system.
+							<br><br>I also developed several features to support the sound implementation process. 
+							These included spatial audio, randomized sound variations, looping tracks, 
+							and a debug visualization tool that displayed the position of spawned sounds in the game world. 
+							This was especially useful when testing and fine-tuning spatialized sounds.
+
 							<br><br>
-							This clip was made near the end of my internship to show some of the work done during it.
-							<br>(More sounds where made that are not all present here)
-							<br>It showcases some of the sounds implemented, as well as the sound implementation features made using the Bevy audio system, 
-							and other general engine features implemented such as the player ping, and a debug visual gizmo for visualizing the location of spawned sounds, 
-							which was created and used when doing the spacialization of all implemented sounds.
+							The video showcases a small selection of the sound effects I worked on. 
+							It also shows other features I worked on during the internship, such as the player ping system. 
+							Additional sounds were created and implemented that are not shown in the video.
 							<br><br>
 							The full source code realised to implement the sound is shown in
 							<a href="#EngineDevelopment">
@@ -873,7 +885,10 @@ pub(super) mod client_only {
 			
 			<!-- More Projects -->
 			<section id="MoreProjects" class="container mt-5">
-				<h2 class="agency-bold-font">More Projects</h2>
+				<div class="d-flex justify-content-start align-items-center mb-3">
+				<h2 class="agency-bold-font me-2">More Projects -</h2>
+				<a href="/projects.html" class="btn btn-outline-light agency-bold-font">See all projects</a>
+			</div> 
 				<div class="container mt-3" id="projectsContainer" data-projects-id="Cosaccodrago,Slitherfang,Prysn">
 					<div class="row g-4">
 						<!-- Project cards will be dynamically inserted here -->
