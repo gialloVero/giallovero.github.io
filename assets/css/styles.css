@@ -274,6 +274,7 @@ li .bi {
 		url("/assets/fonts/AGENCYR.TTF") format("truetype");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -282,6 +283,7 @@ li .bi {
 		url("/assets/fonts/AGENCYB.TTF") format("truetype");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -290,6 +292,7 @@ li .bi {
 		url("/assets/fonts/Roboto.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 body {

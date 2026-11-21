@@ -7,7 +7,7 @@
 	<meta name="description" content="Slitherfang SFX - Giallo">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Slitherfang SFX - Giallo</title>
-	<link rel="icon" href="/assets/images/Gi_Logo_Purple.png" type="image/x-icon">
+	<link rel="icon" href="/assets/images/Gi_Logo_Purple.webp" type="image/x-icon">
 	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
@@ -18,7 +18,7 @@
 	<nav class="agency-bold-font navbar navbar-expand-md bg-body-tertiary sticky-top">
 		<div class="container d-flex align-content-center">
 			<a class="navbar-brand mx-auto order-0" href="/index.html">
-				<img src="/assets/images/Giallo_Logo_Purple.png" 
+				<img src="/assets/images/Giallo_Logo_Purple.webp" 
 				class="img-fluid"
 				alt="Giallo Logo"
 				style="width: clamp(120px, 15vw, 155px); height: auto;">
@@ -292,7 +292,7 @@
 									</button>
 								</div>
 								<div class="col-6 col-lg-8">
-									<input type="range" class="custom-slider volume-slider" data-target="audioRoar" min="0" max="1" step="0.01" value="0.5">
+									<input type="range" class="custom-slider volume-slider" data-target="audioRoar" min="0" max="1" step="0.01" value="0.5" aria-label="Roar Volume Slider">
 								</div>
 							</div>
 
@@ -316,7 +316,7 @@
 									</button>
 								</div>
 								<div class="col-6 col-lg-8">
-									<input type="range" class="custom-slider volume-slider" data-target="audioBuzz" min="0" max="1" step="0.01" value="0.5">
+									<input type="range" class="custom-slider volume-slider" data-target="audioBuzz" min="0" max="1" step="0.01" value="0.5" aria-label="Buzz Volume Slider">
 								</div>
 							</div>
 
@@ -340,7 +340,7 @@
 									</button>
 								</div>
 								<div class="col-6 col-lg-8">
-									<input type="range" class="custom-slider volume-slider" data-target="audioRattle" min="0" max="1" step="0.01" value="0.5">
+									<input type="range" class="custom-slider volume-slider" data-target="audioRattle" min="0" max="1" step="0.01" value="0.5" aria-label="Rattle Volume Slider">
 								</div>
 							</div>
 
@@ -364,7 +364,7 @@
 									</button>
 								</div>
 								<div class="col-6 col-lg-8">
-									<input type="range" class="custom-slider volume-slider" data-target="audioSfx" min="0" max="1" step="0.01" value="0.5">
+									<input type="range" class="custom-slider volume-slider" data-target="audioSfx" min="0" max="1" step="0.01" value="0.5" aria-label="SFX Volume Slider">
 								</div>
 							</div>
 
@@ -388,7 +388,7 @@
 									</button>
 								</div>
 								<div class="col-6 col-lg-8">
-									<input type="range" class="custom-slider volume-slider" data-target="audioAmbience" min="0" max="1" step="0.01" value="0.5">
+									<input type="range" class="custom-slider volume-slider" data-target="audioAmbience" min="0" max="1" step="0.01" value="0.5" aria-label="Ambience Volume Slider">
 								</div>
 							</div>
 						</div>
@@ -417,12 +417,12 @@
 						<div class="video-controls-overlay position-absolute bottom-0 start-0 w-100 p-2 pt-4">
 							
 							<!-- Timeline Slider -->
-							<input type="range" id="videoTimeline" class="custom-slider w-100 mb-2" min="0" max="100" step="0.1" value="0">
+							<input type="range" id="videoTimeline" class="custom-slider w-100 mb-2" min="0" max="100" step="0.1" value="0" aria-label="Video Timeline">
 							
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex align-items-center gap-3">
 									<!-- Play/Pause Button -->
-									<button id="masterPlayBtn" class="btn btn-link text-white p-0 custom-control-btn">
+									<button id="masterPlayBtn" class="btn btn-link text-white p-0 custom-control-btn" aria-label="Play/Pause">
 										<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-play-fill play-icon" viewBox="0 0 16 16">
 											<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
 										</svg>
@@ -436,7 +436,7 @@
 								</div>
 
 								<!-- Fullscreen Button -->
-								<button id="fullscreenBtn" class="btn btn-link text-white p-0 custom-control-btn">
+								<button id="fullscreenBtn" class="btn btn-link text-white p-0 custom-control-btn" aria-label="Fullscreen">
 									<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-fullscreen full-icon" viewBox="0 0 16 16">
 										<path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"/>
 									</svg>
@@ -470,7 +470,7 @@
 	<footer class="mt-auto">
 		<div class="container d-flex align-items-center mb-3">
 			<a href="#">
-				<img src="/assets/images/Giallo_Logo_Purple.png" 
+				<img src="/assets/images/Giallo_Logo_Purple.webp" 
 					class="img-fluid"
 					alt="Giallo Logo"
 					style="width: clamp(120px, 15vw, 155px); height: auto;">
